@@ -1,0 +1,401 @@
+:root{
+  //Style
+  /* Colors */
+  --color-1: #005EFF;
+  --color-2: #F5EDE1;
+
+  /*Fonts*/
+  --main-font:thunder; 
+  --sec-font: funnel display;
+  
+
+  /*border-radius*/
+  --border-radius: 20px;
+}
+
+/*Layout*/
+
+.flex{
+  display: flex;
+}
+
+/*Abstände*/
+.margin-m{
+  margin: 5rem 0rem;
+}
+
+.button a{
+  background-color: var(--color-1);
+  padding: 1rem 2rem .5rem;
+  font-size: 40px;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  font-family: var(--main-font);
+  display: inline-block;
+  height: 50px;
+  line-height: 45px;
+  position: relative;
+  z-index: 3;
+
+}
+
+/*Fonts*/
+.sec-font-bold{
+  font-family: var(--sec-font);
+  font-weight: 900;
+}
+
+.main-font-headlines{
+  font-family: var(--main-font);
+  font-weight: 900;
+}
+
+/*Font-Sizes*/
+h1{
+  font-size: 100px;
+  margin: unset;
+}
+
+h2{
+  font-size: 75px;
+  margin: unset;
+}
+
+h3{
+  font-size: 50px;
+  margin: unset;
+}
+
+p{
+  font-size: 24px;
+  margin: unset;
+  font-family: var(--main-font);
+  line-height: 1.2;
+
+}
+
+/*Colors */
+.blue{
+  color: var(--color-1);
+}
+
+.blue-bg{
+  background-color: var(--color-1);
+}
+
+.beige{
+  color:var(--color-2);
+}
+
+.beige-bg{
+  background-color: var(--color-2) !important;
+}
+
+a{
+  text-decoration: none;
+  color: var(--color-2);
+  cursor: inherit;
+  }
+
+/*Main CSS Rules for Body*/
+
+body{
+  margin: unset;
+  overflow-x: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.sm-wrapper{
+  padding: 0rem 20px;
+}
+
+//Animation Buttons
+
+.button a, .icon-container {
+  position: relative;
+  display: inline-block;
+  animation: buttons 5s ease;
+  
+}
+
+.button a:hover{
+  background-color: var(--color-2);
+  color: var(--color-1);
+  outline: 2px solid;
+  cursor: none;
+}
+
+//Navigation
+
+nav{
+  margin: auto;
+.nav-wrapper{
+  position: fixed;
+  border-radius: var(--border-radius);
+  display: flex;
+  padding: 1rem 2rem;
+  width: 354px;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  transition: background-color 0.2s ease;
+
+  a{
+    .nav-img{
+    width: 75px;
+    height: auto;
+    filter: invert(90%) sepia(21%) saturate(291%) hue-rotate(323deg) brightness(107%) contrast(92%);
+    }
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: unset;
+
+    li{
+      list-style: none;
+
+      a{
+        transition: color 0.2s ease;
+      }
+      }
+    }
+  }
+}
+
+//Footer
+#footer{
+  padding-bottom: 10rem;
+
+  .container-footer{
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-direction: column;
+  }
+
+  a{
+    background-color: none !important;
+    font-size: 23px;
+    font-weight: 500;
+  }
+}
+
+
+//Index ----------------------------------------------------------  // 
+.hero{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .hero-img{
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    }
+
+  .sm-wrapper{
+    height: 100%;
+  }
+
+  .hero-content{
+    flex-direction: column;
+  }
+}
+
+
+.teaser{
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.teaser{
+  .key-visual{
+
+    .teaser-shop-img{
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 2;
+    }
+  }
+}
+
+.recruiting{
+  img{
+    object-fit: cover;
+    margin-bottom: -9rem;
+    width: 100vw;
+    scale: 2.5;
+    z-index: 2;
+  }
+}
+
+div.flex.cta-content{
+  flex-direction: column;
+}
+
+.container-recruiting{
+  flex-direction: column;
+  gap: 5rem;
+  padding: 20rem 0rem 5rem 0rem;
+  border-radius: var(--border-radius);
+
+  .cta-content{
+    padding: 0rem 2rem 0rem 2rem;
+  }
+
+  .button{
+    display: flex;
+    padding-left: 2rem;
+}
+}
+
+// Was ist wave? ---------------------------------------------------------------------  // 
+
+.fragezeichen{
+  font-size: 300px;
+  position: absolute;
+}
+
+.icons-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  flex-direction: row;
+  justify-content: center;
+    .icon-container{
+    height: 100%;
+    border-radius: var(--border-radius);
+    width: calc(50% - 1.5rem);
+    max-width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon{
+    object-fit: contain;
+    padding: 2rem;
+    height: 8rem;
+  }
+  }
+}
+
+
+
+
+
+
+
+
+/* Desktop Anpassungen ----------------------------------------------------------------------------*/
+
+@media screen and (min-width: 750px) {
+  
+  .sm-wrapper{padding: 0rem 8rem;}
+  
+/*Startseite --------------------------------------------------------------------------------------*/
+
+  .hero{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    .hero-img-wrapper{
+      width: 100%;
+    .hero-img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      }
+    }
+    .sm-wrapper{
+      height: 100%;
+      }
+  
+    .hero-content{
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      }
+    };
+
+
+    .teaser{
+      flex-direction: column;
+      gap: 3rem;
+      justify-content: center;
+    }
+    
+    .sorten{
+      flex-direction: row;
+      justify-content: center;
+
+      .key-visual{
+        order: 2;
+        margin-top: 0rem;
+        
+        p{
+          font-size: 500px;
+          transform: rotate(10deg) translate(75%, -15rem);
+          position: absolute;
+          z-index: 1;
+        }
+    
+        .teaser-shop-img{
+          position: relative;
+          width: 100%;
+          height: 100vh;
+          object-fit: contain;
+          z-index: 2;
+          scale: 2;
+          padding-right: 8rem;
+        }
+      }
+    }
+
+    .recruiting-wrapper{
+      margin-top: -10rem;
+      img{
+        object-fit: contain;
+        margin-bottom: -10rem;
+        width: 100%;
+        scale: 1.5;
+        z-index: 2;
+      }
+    }
+    
+    .container-recruiting{
+      width: 100%;
+      flex-direction: column;
+      gap: 5rem;
+      padding: 20rem 0rem 5rem 0rem;
+      border-radius: var(--border-radius);
+
+      .cta-content{
+        max-width: 800px;
+      }
+    
+     
+    
+      .button{
+        display: flex;
+    }
+    }
+
+    #footer{
+    .container-footer{
+      flex-direction: row;
+      }
+    }
+  }
+
