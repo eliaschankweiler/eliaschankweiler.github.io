@@ -131,7 +131,7 @@ nav .nav-wrapper {
   border-radius: var(--border-radius);
   display: flex;
   padding: 1rem 2rem;
-  width: 354px;
+  width: 300px;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
@@ -143,7 +143,7 @@ nav .nav-wrapper a {
   align-items: center;
 }
 nav .nav-wrapper a .nav-img {
-  width: 75px;
+  width: 40px;
   height: auto;
   filter: invert(90%) sepia(21%) saturate(291%) hue-rotate(323deg) brightness(107%) contrast(92%);
 }
@@ -153,6 +153,7 @@ nav .nav-wrapper .nav-list {
   justify-content: space-between;
   align-items: center;
   margin: unset;
+  padding-left: 15px;
 }
 nav .nav-wrapper .nav-list li {
   list-style: none;
@@ -267,6 +268,12 @@ div.flex.cta-content {
 
 /* Desktop Anpassungen ----------------------------------------------------------------------------*/
 @media screen and (min-width: 750px) {
+  .nav-wrapper {
+    width: 400px !important;
+  }
+  .nav-wrapper .nav-img {
+    width: 100px !important;
+  }
   .sm-wrapper {
     padding: 0rem 3rem;
   }
