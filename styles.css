@@ -96,10 +96,13 @@ a {
 }
 
 /*Main CSS Rules for Body*/
-body {
-  margin: unset;
+html, body {
   overflow-x: hidden;
   position: relative;
+}
+
+body {
+  margin: unset;
   box-sizing: border-box;
 }
 
