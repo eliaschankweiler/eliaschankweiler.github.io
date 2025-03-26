@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Thunder SemBd Ita';
+    src: url('Thunder-SemiBoldLCItalic.woff2') format('woff2'),
+        url('Thunder-SemiBoldLCItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('Thunder-LC.woff2') format('woff2'),
+        url('Thunder-LC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('Thunder-ThinLC.woff2') format('woff2'),
+        url('Thunder-ThinLC.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Med';
+    src: url('Thunder-MediumLC.woff2') format('woff2'),
+        url('Thunder-MediumLC.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Black Ita';
+    src: url('Thunder-BlackLCItalic.woff2') format('woff2'),
+        url('Thunder-BlackLCItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Light Ita';
+    src: url('Thunder-LightLCItalic.woff2') format('woff2'),
+        url('Thunder-LightLCItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Med Ita';
+    src: url('Thunder-MediumLCItalic.woff2') format('woff2'),
+        url('Thunder-MediumLCItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('Thunder-LightLC.woff2') format('woff2'),
+        url('Thunder-LightLC.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Ita';
+    src: url('Thunder-LCItalic.woff2') format('woff2'),
+        url('Thunder-LCItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder ExtLt';
+    src: url('Thunder-ExtraLightLC.woff2') format('woff2'),
+        url('Thunder-ExtraLightLC.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('Thunder-BoldLC.woff2') format('woff2'),
+        url('Thunder-BoldLC.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder ExtBd Ita';
+    src: url('Thunder-ExtraBoldLCItalic.woff2') format('woff2'),
+        url('Thunder-ExtraBoldLCItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder ExtLt Ita';
+    src: url('Thunder-ExtraLightLCItalic.woff2') format('woff2'),
+        url('Thunder-ExtraLightLCItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder ExtBd';
+    src: url('Thunder-ExtraBoldLC.woff2') format('woff2'),
+        url('Thunder-ExtraBoldLC.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Thin Ita';
+    src: url('Thunder-ThinLCItalic.woff2') format('woff2'),
+        url('Thunder-ThinLCItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder Ita';
+    src: url('Thunder-BoldLCItalic.woff2') format('woff2'),
+        url('Thunder-BoldLCItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder SemBd';
+    src: url('Thunder-SemiBoldLC.woff2') format('woff2'),
+        url('Thunder-SemiBoldLC.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('Thunder-BlackLC.woff2') format('woff2'),
+        url('Thunder-BlackLC.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -15,6 +15,10 @@
   display: flex;
 }
 
+section {
+  margin: 5rem 0rem;
+}
+
 /*Abstände*/
 .margin-m {
   margin: 5rem 0rem;
@@ -172,7 +176,7 @@ nav .nav-wrapper .nav-list li a {
 }
 
 .hero {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -261,31 +265,7 @@ div.flex.cta-content {
 /* Desktop Anpassungen ----------------------------------------------------------------------------*/
 @media screen and (min-width: 750px) {
   .sm-wrapper {
-    padding: 0rem 8rem;
-  }
-  /*Startseite --------------------------------------------------------------------------------------*/
-  .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-  }
-  .hero .hero-img-wrapper {
-    width: 100%;
-  }
-  .hero .hero-img-wrapper .hero-img {
-    height: 100%;
-    width: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-  .hero .sm-wrapper {
-    height: 100%;
-  }
-  .hero .hero-content {
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+    padding: 0rem 3rem;
   }
   .teaser {
     flex-direction: column;
@@ -342,5 +322,34 @@ div.flex.cta-content {
   }
   #footer .container-footer {
     flex-direction: row;
+  }
+}
+/*------------ Desktop over 900px ------------------ */
+@media screen and (min-width: 900px) {
+  .sm-wrapper {
+    padding: 0rem 8rem;
+  }
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+  }
+  .hero .hero-img-wrapper {
+    width: 100%;
+  }
+  .hero .hero-img-wrapper .hero-img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .hero .sm-wrapper {
+    height: 100%;
+  }
+  .hero .hero-content {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
   }
 }/*# sourceMappingURL=styles.css.map */
