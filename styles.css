@@ -223,7 +223,7 @@ div.flex.cta-content {
 .container-recruiting {
   flex-direction: column;
   gap: 5rem;
-  padding: 20rem 0rem 5rem 0rem;
+  padding: 35rem 0rem 5rem 0rem;
   border-radius: var(--border-radius);
 }
 .container-recruiting .cta-content {
