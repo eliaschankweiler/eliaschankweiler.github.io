@@ -46,12 +46,12 @@ section{
 /*Fonts*/
 .sec-font-bold{
   font-family: var(--sec-font);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .main-font-headlines{
   font-family: var(--main-font);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 /*Font-Sizes*/
@@ -356,7 +356,7 @@ div.flex.cta-content{
       border-radius: var(--border-radius);
 
       .cta-content{
-        max-width: 800px;
+        zzz-max-width: 800px;
       }
     
      
