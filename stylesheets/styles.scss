@@ -1,0 +1,43 @@
+
+//VARS
+@use 'design-system' as *;
+
+.color-primary{
+  color: $color-primary;
+};
+
+.gradient-text{
+  background: $gradient-primary-signature;;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.full-width{
+  max-width: unset !important;
+}
+
+.wide-width{
+  max-width: $wide-swidth;
+}
+
+.content-width{
+  max-width: $content-width;
+}
+
+
+//HERO-SECTION
+
+.hero{
+  height: 100svh;
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.hero{
+  .hero-type-group{
+    padding: $spacing-16 0 $spacing-16 0;
+  }
+}

@@ -8,11 +8,11 @@
 // 1. GOOGLE FONTS VERLINKUNG
 // -----------------------------------------------------------------------------
 @font-face {
-  font-family: 'Manrope Variable';
+  font-family: 'Manrope';
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
-  src: url(Portfolio/fonts/Manrope/Manrope-VariableFont_wght.ttf) format('ttf-variations');
+  src: url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2');
 }
 
 @font-face {
@@ -20,15 +20,15 @@
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
-  src: url(Portfolio/fonts/Epilogue-Italic-VariableFont_wght.woff2) format('woff2-variations');
+  src: url('../fonts/Epilogue-VariableFont_wght.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Epilogue Italic';
+  font-family: 'Epilogue';
   font-style: italic;
   font-display: swap;
   font-weight: 100 900;
-  src: url(Portfolio/fonts/Epilogue/Epilogue-Italic-VariableFont_wght.ttf) format('ttf-variations');
+  src: url('../fonts/Epilogue/Epilogue-Italic-VariableFont_wght.ttf') format('woff2');
 }
 
 @font-face {
@@ -36,15 +36,15 @@
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
-  src: url(Portfolio/fonts/Inter-VariableFont_opsz,wght.woff2) format('ttf-variations');
+  src: url('../fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Inter Variable';
+  font-family: 'Inter';
   font-style: italic;
   font-display: swap;
   font-weight: 100 900;
-  src: url(Portfolio/fonts/Inter/Inter-VariableFont_opsz,wght.ttf) format('ttf-variations');
+  src: url('../fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
 }
 
 
@@ -53,7 +53,7 @@
 // =============================================================================
 
 // --- Foundation ---
-$color-surface:                   #f9f9fb;  // Base canvas (warm light grey)
+$color-surface:                   #E9E9E9;  // Base canvas (warm light grey)
 $color-on-surface:                #1a1c1d;  // Primary body copy (softened black)
 $color-on-surface-pure:           #000000;  // Pure black — Display headings only
 
@@ -100,9 +100,9 @@ $color-shadow:                    rgba(#1a1c1d, 0.06); // Ambient shadow tint
 // =============================================================================
 
 // --- Font Families ---
-$font-headline:     'Epilogue', sans-serif;   // Display & Headline scales
-$font-text: 'Manrope', sans-serif;    // Title & Body scales
-$font-utility:   'Inter', sans-serif;      // Label scales (captions, metadata, tags)
+$font-headline: 'Manrope', sans-serif;   // Display & Headline scales
+$font-text: 'Epilogue', sans-serif;    // Title & Body scales
+$font-utility: 'Inter', sans-serif;      // Label scales (captions, metadata, tags)
 
 // --- Type Scale ---
 // Display
@@ -143,11 +143,17 @@ $line-height-snug:    1.3;
 $line-height-normal:  1.5;
 $line-height-relaxed: 1.7;
 
+// --- Letter Spacings ---
+$letter-spacing-lg: -.2rem;
+$letter-spacing-md: -.1rem;
+$letter-spacing-sm: 0rem;
+
 // --- CSS Custom Properties ---
 :root {
   --font-headline:     #{$font-headline};
   --font-text: #{$font-text};
   --font-utility:   #{$font-utility};
+
 }
 
 
@@ -226,6 +232,7 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-black;
   line-height: $line-height-tight;
   color: $color-on-surface-pure;
+  letter-spacing: $letter-spacing-lg;
 }
 
 @mixin type-display-md {
@@ -234,6 +241,8 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-black;
   line-height: $line-height-tight;
   color: $color-on-surface-pure;
+  letter-spacing: $letter-spacing-md;
+
 }
 
 @mixin type-display-sm {
@@ -242,15 +251,19 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-bold;
   line-height: $line-height-snug;
   color: $color-on-surface-pure;
+  letter-spacing: $letter-spacing-sm;
+
 }
 
-// Headline — Epilogue
+// Headline — Manrope
 @mixin type-headline-lg {
   font-family: $font-headline;
   font-size: $type-headline-lg;
   font-weight: $weight-bold;
   line-height: $line-height-snug;
   color: $color-on-surface;
+  letter-spacing: $letter-spacing-lg;
+
 }
 
 @mixin type-headline-md {
@@ -259,6 +272,7 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-bold;
   line-height: $line-height-snug;
   color: $color-on-surface;
+  letter-spacing: $letter-spacing-md;
 }
 
 @mixin type-headline-sm {
@@ -267,15 +281,18 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-semibold;
   line-height: $line-height-snug;
   color: $color-on-surface;
+  letter-spacing: $letter-spacing-sm;
 }
 
-// Title — Manrope
+// Title — Epilogue
 @mixin type-title-lg {
   font-family: $font-text;
   font-size: $type-title-lg;
   font-weight: $weight-semibold;
   line-height: $line-height-normal;
   color: $color-on-surface;
+  letter-spacing: $letter-spacing-lg;
+
 }
 
 @mixin type-title-md {
@@ -284,6 +301,8 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-semibold;
   line-height: $line-height-normal;
   color: $color-on-surface;
+  letter-spacing: $letter-spacing-md;
+
 }
 
 @mixin type-title-sm {
@@ -292,9 +311,11 @@ $gradient-primary-signature: linear-gradient(
   font-weight: $weight-medium;
   line-height: $line-height-normal;
   color: $color-on-surface;
+  letter-spacing: $letter-spacing-sm;
+
 }
 
-// Body — Manrope
+// Body — Epilogue
 @mixin type-body-lg {
   font-family: $font-text;
   font-size: $type-body-lg;
@@ -661,4 +682,18 @@ img {
   &__body {
     padding-top: $spacing-6; // Offset for tension
   }
+
+
+
+  //---------------------------------------------------------
+  //CUSTOM ENTITIES
+  //_________________________________________________________
+  
+  
+  //WIDTH-SETTINGS
+
+  $wide-width: 1400px;
+  $content-width: 700px; 
+
+
 }
