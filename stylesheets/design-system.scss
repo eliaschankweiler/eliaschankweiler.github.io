@@ -53,18 +53,18 @@
 // =============================================================================
 
 // --- Foundation ---
-$color-surface:                   #E9E9E9;  // Base canvas (warm light grey)
-$color-on-surface:                #1a1c1d;  // Primary body copy (softened black)
-$color-on-surface-pure:           #000000;  // Pure black — Display headings only
+$color-surface:                   #0b0b0e;  // Base canvas (warm light grey)
+$color-on-surface:                #ffe6d4;  // Primary body copy (softened black)
+$color-on-surface-pure:           #ffe6d4;  // Pure black — Display headings only
 
 // --- Primary / Accent ---
 $color-primary:                    #ff6b00 ;  // Interactive / hover states
 $color-primary-container:         #a04100;  // CTAs, underlines, focal accent
 
 // --- Surface Container Tiers (Layering Principle) ---
-$color-surface-container-lowest:  #ffffff;  // Cards / interactive modules (Level 2)
-$color-surface-container-low:     #f0f0f3;  // Secondary content sections (Level 1)
-$color-surface-container:         #e8e8ec;  // General contained surfaces
+$color-surface-container-lowest:  #bbbbbb;  // Cards / interactive modules (Level 2)
+$color-surface-container-low:     #9e9e9e;  // Secondary content sections (Level 1)
+$color-surface-container:         #1a1a1a;  // General contained surfaces
 $color-surface-container-high:    #dedee2;  // Hover backgrounds for list items
 $color-surface-container-highest: #d4d4d8;  // Chip / tag backgrounds
 
@@ -106,9 +106,9 @@ $font-utility: 'Inter', sans-serif;      // Label scales (captions, metadata, ta
 
 // --- Type Scale ---
 // Display
-$type-display-lg:   3.5rem;    // 56px — Portfolio titles
-$type-display-md:   2.75rem;   // 44px
-$type-display-sm:   2.25rem;   // 36px
+$type-display-lg:   5rem;    // 56px — Portfolio titles
+$type-display-md:   3.5rem;   // 44px
+$type-display-sm:   2rem;   // 36px
 
 // Headline
 $type-headline-lg:  1.875rem;  // 30px
@@ -489,6 +489,7 @@ img {
 // Sits on surface-container-low → card is surface-container-lowest = natural lift
 .card-portfolio {
   background-color: $color-surface-container-lowest;
+  position: relative; // Wichtig für das absolute Overlay
   border-radius: $radius-lg;
   overflow: hidden;
   box-shadow: $shadow-none; // No default shadow — Layering Principle handles depth
@@ -498,29 +499,63 @@ img {
   &:hover {
     box-shadow: $shadow-ambient; // Active state only
     transform: translateY(-2px);
+
+    // Beim Hovern der Karte wird der Body sichtbar
+    .card-portfolio__body {
+      opacity: 1;
+    }
   }
 
   &__image {
     width: 100%;
+    height: 100%; // Bild füllt die ganze Karte
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: $radius-default;
+    border-radius: 0; // Radius wird vom Container (overflow: hidden) beschnitten
   }
 
   &__body {
-    padding: $spacing-5; // Generous inner padding per spec
+    // Overlay Positionierung
+    position: absolute;
+    inset: 0; // top, right, bottom, left: 0
+    
+    // Orangenes Overlay mit Transparenz
+    background-color: rgba($color-primary, 0.9);
+    
+    // Flexbox zum Zentrieren des Inhalts
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: $spacing-6; // Etwas mehr Padding für das Overlay
+    
+    // Animation & Sichtbarkeit
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   &__title {
     @include type-headline-sm;
     margin-bottom: $spacing-2;
+    color: $color-on-primary; // Weißer Text auf orangenem Grund
   }
 
   &__description {
     @include type-body-sm;
     margin-bottom: $spacing-4;
+    color: $color-on-primary; // Weißer Text auf orangenem Grund
+  }
+  
+  // Chip Farbe anpassen für besseren Kontrast auf Orange
+  .chip {
+    background-color: $color-on-primary; // Weißer Hintergrund
+    color: $color-primary; // Orangene Schrift
   }
 }
+
+// --- Editorial List — No Dividers ---
+
 
 // --- Editorial List — No Dividers ---
 // Spacing-4 alone creates the visual boundary

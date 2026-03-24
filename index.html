@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="des">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,25 @@
   <title>Portfolio</title>
 </head>
 
-  <nav class="wide-width padding--0-6">
-  <ul class=" flex-group col gap-6 justify-end">
-    <li>
-      <a href="./ueber-mich.hmtl">Über mich</a>
-    </li>
-    
-    <li>
-      <a href="./portfolio.hmtl">Portfolio</a>
-    </li>
-  </ul>
+<body>
+  
+<header class="wide-width flex-group align-center justify-space-between padding--0-6">
+<div>
+  <img src="./img/es_Zeichenfläche 1 Kopie 3.png" alt="Logo">
+</div>
+  <nav>
+    <ul class=" flex-group col gap-6 justify-end">
+      <li>
+        <a href="./ueber-mich.hmtl">Über mich</a>
+      </li>
+      
+      <li>
+        <a href="./portfolio.hmtl">Portfolio</a>
+      </li>
+    </ul>
   </nav>
+
+  </header>
 
 
   <section class= "full-width hero">
@@ -26,14 +34,82 @@
 
       <div class=" padding--0-6 padding--16-0 flex-group flex-col justify-center">
         <p class="color-primary">Elia Schankweiler - Mediengestalter Digital</p>
-        <h1 class="type-headline-large"><span class="gradient-text">Design</span> ist meine Leidenschaft.</h1>
-        <h2 class="type-headline-large">Online wie Offline. Digital wie Analog. Ich denke Design modern.</h2>
+        <h1 class="type-headline-large"><span class="gradient-text"> Lorem Ipsum </span></h1>
+        <h2 class="type-headline-large">Lorem Ipsum dolor sit amet.</h2>
       </div>
 
       <img src="img/paul-schafer-NDcN_8JiAqw-unsplash-removebg-preview.png" alt="Bild von mir">
 
     </div>
   </section>
+
+  <!-- JS MARQUEE BAND -->
+  <div id="tech-marquee" class="wide-width"></div>
+
+  <!-- TEASER: ÜBER MICH -->
+  <section class="section-break wide-width padding--0-6">
+    <div class="layout-editorial">
+      <!-- Linke Spalte: Überschrift -->
+      <h2 class="type-headline-large">Über mich</h2>
+      
+      <!-- Rechte Spalte: Inhalt & Button -->
+      <div class="layout-editorial__body">
+        <p style="margin-bottom: 2rem;">
+          Ich bin ein leidenschaftlicher Mediengestalter mit einem Auge für Details und digitale Erlebnisse. 
+          Meine Arbeit verbindet ästhetisches Design mit funktionaler Technologie, um Nutzer zu begeistern. 
+          Wenn ich nicht gerade pixel-genaue Layouts entwerfe, beschäftige ich mich mit den neuesten Web-Trends.
+        </p>
+        <a href="./ueber-mich.html" class="btn-primary">Mehr über mich</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEASER: PORTFOLIO HIGHLIGHTS -->
+  <section class="section-break wide-width padding--0-6">
+    <div class="flex-group justify-space-between align-center" style="margin-bottom: 3rem;">
+      <h2 class="type-headline-large">Ausgewählte Arbeiten</h2>
+    </div>
+
+    <!-- Grid für 3 Karten -->
+    <div class="project-grid">
+      
+      <!-- Karte 1 -->
+      <article class="card-portfolio">
+        <img src="https://placehold.co/600x400/1a1a1a/FFF" alt="Projekt 1" class="card-portfolio__image">
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Projekt Alpha</h3>
+          <p class="card-portfolio__description">Ein Redesign für eine E-Commerce Plattform mit Fokus auf UX.</p>
+          <span class="chip">Web Design</span>
+        </div>
+      </article>
+
+      <!-- Karte 2 -->
+      <article class="card-portfolio">
+        <img src="https://placehold.co/600x400/1a1a1a/FFF" alt="Projekt 2" class="card-portfolio__image">
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Brand Identity Beta</h3>
+          <p class="card-portfolio__description">Entwicklung eines kompletten Corporate Designs für ein Startup.</p>
+          <span class="chip">Branding</span>
+        </div>
+      </article>
+
+      <!-- Karte 3 -->
+      <article class="card-portfolio">
+        <img src="https://placehold.co/600x400/1a1a1a/FFF" alt="Projekt 3" class="card-portfolio__image">
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">App Konzept Gamma</h3>
+          <p class="card-portfolio__description">Prototyping einer Social Media Applikation für Musiker.</p>
+          <span class="chip">UI / UX</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="flex-group justify-center">
+      <a href="./portfolio.html" class="btn-primary">Zum gesamten Portfolio</a>
+    </div>
+  </section>
   
+  <script src="js/marquee.js"></script>
 </body>
 </html>
