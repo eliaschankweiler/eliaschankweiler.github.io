@@ -17,11 +17,11 @@
   <nav>
     <ul class=" flex-group col gap-6 justify-end">
       <li>
-        <a href="./ueber-mich.hmtl">Über mich</a>
+        <a href="./ueber-mich.html">Über mich</a>
       </li>
       
       <li>
-        <a href="./portfolio.hmtl">Portfolio</a>
+        <a href="./portfolio.html">Portfolio</a>
       </li>
     </ul>
   </nav>
@@ -66,16 +66,35 @@
 
   <!-- TEASER: PORTFOLIO HIGHLIGHTS -->
   <section class="section-break wide-width padding--0-6">
-    <div class="flex-group justify-space-between align-center" style="margin-bottom: 3rem;">
-      <h2 class="type-headline-large">Ausgewählte Arbeiten</h2>
+    <div class="layout-editorial" style="margin-bottom: 3rem;">
+      <!-- Linke Spalte: Überschrift -->
+      <h2 class="type-headline-large">Portfolio</h2>
+      
+      <!-- Rechte Spalte: Kurzer Text -->
+      <div class="layout-editorial__body">
+        <p style="margin-bottom: 2rem;">
+          Hier findest du eine Auswahl meiner aktuellen Projekte. Von UI/UX Design bis hin zu Branding-Identitäten – 
+          jede Arbeit folgt dem Anspruch an Ästhetik und Funktionalität.
+        </p>
+
+         <!-- Ausgerichteter Button wie oben bei Über mich -->
+    <div>
+        <a href="./portfolio.html" class="btn-primary">Zum gesamten Portfolio</a>
+      </div>
+    </div>
+      </div>
     </div>
 
-    <!-- Grid für 3 Karten -->
-    <div class="project-grid">
+    
+
+    <!-- Slider für 4 Karten -->
+    <div class="project-slider">
       
       <!-- Karte 1 -->
-      <article class="card-portfolio">
-        <img src="https://placehold.co/600x400/1a1a1a/FFF" alt="Projekt 1" class="card-portfolio__image">
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop" alt="Projekt 1" class="card-portfolio__image">
+        </div>
         <div class="card-portfolio__body">
           <h3 class="card-portfolio__title">Projekt Alpha</h3>
           <p class="card-portfolio__description">Ein Redesign für eine E-Commerce Plattform mit Fokus auf UX.</p>
@@ -84,8 +103,10 @@
       </article>
 
       <!-- Karte 2 -->
-      <article class="card-portfolio">
-        <img src="https://placehold.co/600x400/1a1a1a/FFF" alt="Projekt 2" class="card-portfolio__image">
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop" alt="Projekt 2" class="card-portfolio__image">
+        </div>
         <div class="card-portfolio__body">
           <h3 class="card-portfolio__title">Brand Identity Beta</h3>
           <p class="card-portfolio__description">Entwicklung eines kompletten Corporate Designs für ein Startup.</p>
@@ -94,8 +115,10 @@
       </article>
 
       <!-- Karte 3 -->
-      <article class="card-portfolio">
-        <img src="https://placehold.co/600x400/1a1a1a/FFF" alt="Projekt 3" class="card-portfolio__image">
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop" alt="Projekt 3" class="card-portfolio__image">
+        </div>
         <div class="card-portfolio__body">
           <h3 class="card-portfolio__title">App Konzept Gamma</h3>
           <p class="card-portfolio__description">Prototyping einer Social Media Applikation für Musiker.</p>
@@ -103,13 +126,27 @@
         </div>
       </article>
 
-    </div>
+      <!-- Karte 4 -->
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" alt="Projekt 4" class="card-portfolio__image">
+        </div>
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Motion Design Delta</h3>
+          <p class="card-portfolio__description">Explainer-Video und Animationen für ein Tech-Produkt.</p>
+          <span class="chip">Animation</span>
+        </div>
+      </article>
 
-    <div class="flex-group justify-center">
-      <a href="./portfolio.html" class="btn-primary">Zum gesamten Portfolio</a>
     </div>
   </section>
   
+  <!-- CUSTOM CURSOR -->
+  <div id="custom-cursor">
+    <span class="cursor-label"></span>
+  </div>
+
   <script src="js/marquee.js"></script>
+  <script src="js/card-glow.js"></script>
 </body>
 </html>

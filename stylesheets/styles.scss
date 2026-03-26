@@ -29,6 +29,10 @@
   margin: 0 auto 
 }
 
+html{
+  overflow-x: hidden;
+}
+
 // Flex-groups
 
 
@@ -207,12 +211,64 @@ nav{
   }
 }
 
-// PORTFOLIO GRID
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+// PORTFOLIO SLIDER
+.project-slider {
+  display: flex;
+  flex-direction: column; // Karten auf dem Phone untereinander stapeln
   gap: $spacing-6;
+  padding-top: $spacing-4; // Verhindert das Abschneiden von Schatten oder Effekten oben
+  padding-bottom: $spacing-10; // Platz für Scrollbar-Styling
   margin-bottom: $spacing-8;
+
+  // Slider-Funktionalität erst ab Tablet (768px) aktivieren
+  @media (min-width: 768px) {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    // Sichtbarer Balken (Scrollbar-Styling) als Indikator
+    scrollbar-width: thin;
+    scrollbar-color: $color-primary rgba($color-on-surface, 0.1);
+
+    &::-webkit-scrollbar {
+      display: block;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba($color-on-surface, 0.05);
+      border-radius: $radius-full;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $color-primary;
+      border-radius: $radius-full;
+    }
+  }
+
+  article {
+    flex: 0 0 auto; // Volle Breite auf Mobile
+    width: 100%;
+
+    // Stacking Effekt auf dem Smartphone
+    @media (max-width: 767px) {
+      position: sticky;
+      top: 6rem; // Platz für den fixierten Header (3.5rem Höhe + 1.4rem Top)
+      background-color: $color-surface; // Verhindert Durchscheinen der unteren Karten
+      padding-bottom: $spacing-6; // Abstand zur nächsten Karte beim Stapeln
+    }
+
+    @media (min-width: 768px) {
+      flex: 0 0 45%; // Tablet: 2 Karten sichtbar
+      scroll-snap-align: start;
+    }
+
+    @media (min-width: 1200px) {
+      flex: 0 0 30%; // Desktop: ca. 3 Karten sichtbar
+    }
+
+    .card-portfolio__image {
+      aspect-ratio: 6 / 4 !important; // Erzwungenes 5:4 Verhältnis für alle
+    }
+  }
 }
 
 // TECH MARQUEE (LAUFBAND)
@@ -247,7 +303,7 @@ nav{
   margin: 0 $spacing-8; // Abstand zwischen den Wörtern
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 @keyframes marquee-scroll {

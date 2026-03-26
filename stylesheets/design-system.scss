@@ -47,7 +47,6 @@
   src: url('../fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
 }
 
-
 // =============================================================================
 // 2. DESIGN TOKENS — COLOR
 // =============================================================================
@@ -154,6 +153,58 @@ $letter-spacing-sm: 0rem;
   --font-text: #{$font-text};
   --font-utility:   #{$font-utility};
 
+}
+
+// =============================================================================
+// CUSTOM CURSOR STYLES
+// =============================================================================
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid $color-primary;
+  background-color: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 1; // Immer sichtbar
+  transition: opacity 0.3s ease, transform 0.15s ease, background-color 0.2s ease;
+  transform: translate(-50%, -50%);
+
+  &.active {
+    background-color: $color-primary; // Füllt den Kreis
+    transform: translate(-50%, -50%) scale(1.2);
+    
+    .cursor-label {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .cursor-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: $color-primary;
+    color: $color-on-primary;
+    padding: 4px 10px;
+    border-radius: 4px 10px 10px 10px;
+    font-family: $font-utility;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+}
+
+// Cursor ausblenden auf interaktiven Elementen
+.project-item, .btn-primary, header a, html, body {
+  cursor: none !important;
 }
 
 
@@ -433,22 +484,51 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $spacing-3 $spacing-8;
-  background: $gradient-primary-signature; // Signature texture — never flat orange
-  color: $color-on-primary-container;
+  padding: calc(#{$spacing-3} - 1px) $spacing-8; // -1px wegen der Border
+  background: transparent;
+  color: $color-primary;
   font-family: $font-text;
   font-size: $type-body-md;
   font-weight: $weight-semibold;
   border-radius: $radius-md;
-  border: none;
+  border: 2px solid rgba($color-primary, 0.2); // Dezente Grund-Border
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+  // Spotlight-Border Effekt (wie bei den Karten)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0; // Bündig ausrichten, um Clipping durch overflow:hidden zu vermeiden
+    border-radius: inherit;
+    padding: 1px; // Entspricht der 1px Border des Buttons
+    background: radial-gradient(
+      200px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+      $color-primary,
+      transparent 80%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
 
   &:hover {
-    opacity: 0.9;
+    opacity: 1;
     transform: translateY(-1px);
-    color: $color-on-primary-container;
+    color: $color-primary;
+    box-shadow: 0 5px 15px rgba($color-primary, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   &:active {
@@ -485,72 +565,97 @@ img {
 // 11. COMPONENTS — CARDS
 // =============================================================================
 
-// --- Portfolio Card ---
-// Sits on surface-container-low → card is surface-container-lowest = natural lift
+// Wrapper für das gesamte Projekt-Item im Slider
+.project-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius-lg; // Abgerundete Ecken für das gesamte Item
+}
+
 .card-portfolio {
-  background-color: $color-surface-container-lowest;
+  background-color: transparent; 
   position: relative; // Wichtig für das absolute Overlay
   border-radius: $radius-lg;
   overflow: hidden;
   box-shadow: $shadow-none; // No default shadow — Layering Principle handles depth
-
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-
-  &:hover {
-    box-shadow: $shadow-ambient; // Active state only
-    transform: translateY(-2px);
-
-    // Beim Hovern der Karte wird der Body sichtbar
-    .card-portfolio__body {
-      opacity: 1;
-    }
+  
+  // Die Spotlight-Border Technik
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; // Die Breite der Border
+    background: radial-gradient(
+      400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+      $color-primary, // Kräftiges Orange bleibt für den Border-Glow erhalten
+      transparent 80%
+    );
+    // Maskierung: Zeige nur den Bereich des Paddings (die Border)
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 3; // Über dem Bild und dem Hover-Overlay
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
+
+  transition: box-shadow 0.3s ease;
 
   &__image {
     width: 100%;
-    height: 100%; // Bild füllt die ganze Karte
-    aspect-ratio: 16 / 9;
+    height: auto;
     object-fit: cover;
     border-radius: 0; // Radius wird vom Container (overflow: hidden) beschnitten
+    position: relative;
+    z-index: 0;
+    filter: grayscale(100%); // Standardmäßig Schwarz-Weiß
+    transition: filter 0.4s ease;
   }
 
   &__body {
-    // Overlay Positionierung
-    position: absolute;
-    inset: 0; // top, right, bottom, left: 0
-    
-    // Orangenes Overlay mit Transparenz
-    background-color: rgba($color-primary, 0.9);
-    
-    // Flexbox zum Zentrieren des Inhalts
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: $spacing-6; // Etwas mehr Padding für das Overlay
-    
-    // Animation & Sichtbarkeit
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    padding: $spacing-4 0; // Verringertes Padding (nur oben/unten)
+    background-color: transparent;
+    opacity: 1;
+    z-index: 1;
   }
 
   &__title {
     @include type-headline-sm;
     margin-bottom: $spacing-2;
-    color: $color-on-primary; // Weißer Text auf orangenem Grund
+    color: $color-primary;
   }
 
   &__description {
     @include type-body-sm;
     margin-bottom: $spacing-4;
-    color: $color-on-primary; // Weißer Text auf orangenem Grund
+    color: $color-on-surface;
   }
   
   // Chip Farbe anpassen für besseren Kontrast auf Orange
   .chip {
-    background-color: $color-on-primary; // Weißer Hintergrund
-    color: $color-primary; // Orangene Schrift
+    background-color: $color-surface-container-highest; 
+    color: $color-on-surface;
+    align-self: flex-start; // Bubble nimmt nur die Breite des Inhalts ein
+  }
+}
+
+// Hover-Effekte über das übergeordnete Item steuern
+.project-item:hover {
+  .card-portfolio {
+    box-shadow: $shadow-ambient;
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .card-portfolio__image {
+    filter: grayscale(0%);
   }
 }
 
@@ -617,6 +722,7 @@ img {
 // =============================================================================
 
 .chip {
+  width: fit-content;
   display: inline-flex;
   align-items: center;
   gap: $spacing-1;
@@ -624,7 +730,7 @@ img {
   border-radius: $radius-full; // Fully rounded "pebble"
   padding: $spacing-1 $spacing-3;
   @include type-label-md;
-  color: $color-on-surface;
+  color: $color-surface;
   cursor: default;
   transition: background-color 0.2s ease;
 
@@ -710,12 +816,21 @@ img {
 // Header left, body center-right — creates intentional visual tension
 .layout-editorial {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: $spacing-12;
+  grid-template-columns: 1fr;
+  gap: $spacing-6;
   align-items: start;
 
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1.4fr;
+    gap: $spacing-12;
+  }
+
   &__body {
-    padding-top: $spacing-6; // Offset for tension
+    padding-top: 0;
+
+    @media (min-width: 768px) {
+      padding-top: $spacing-6; // Offset for tension
+    }
   }
   }
 
@@ -730,5 +845,3 @@ img {
 
   $wide-width: 1100px;
   $content-width: 700px; 
-
-
