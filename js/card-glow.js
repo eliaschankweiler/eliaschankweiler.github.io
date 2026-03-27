@@ -1,6 +1,11 @@
 const cursor = document.getElementById('custom-cursor');
 const cursorLabel = cursor.querySelector('.cursor-label');
 
+// Deaktivieren auf Touch-Geräten
+if (window.matchMedia("(pointer: coarse)").matches) {
+  if (cursor) cursor.style.display = 'none';
+} else {
+
 // Cursor Position folgen lassen
 window.addEventListener('mousemove', (e) => {
   cursor.style.left = e.clientX + 'px';
@@ -27,6 +32,7 @@ document.querySelectorAll('.btn-primary, .project-item, header nav a, .btn-edito
     cursor.classList.remove('active');
   });
 });
+}
 
 // Spotlight Effekt beibehalten
 document.querySelectorAll('.card-portfolio, .btn-primary').forEach(card => {

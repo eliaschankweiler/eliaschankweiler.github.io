@@ -152,6 +152,7 @@ nav{
   display: flex;
   align-items: flex-end;
   position: relative; // Wichtig für absolute Positionierung des Bildes
+  overflow: hidden; // Verhindert Sidescroll durch das ::before Element
 
   // Orange Gradient Overlay
   &::before {
@@ -273,7 +274,7 @@ nav{
 
 // TECH MARQUEE (LAUFBAND)
 #tech-marquee {
-  width: 100%;
+  width: calc(100% - 4rem);
   overflow: hidden; // Versteckt alles was rechts rausläuft
   background-color: rgba($color-surface-container, 0.3); 
   border-radius: 15px;// Dunkelgrauer Hintergrund
