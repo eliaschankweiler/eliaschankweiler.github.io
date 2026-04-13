@@ -13,6 +13,7 @@ function createAnimation(element) {
     let animationFrame;
     let currentX = 0;
     let currentY = 0;
+    
 
     // Mouse Enter und Mousemove
     element.addEventListener('mouseenter', () => {
