@@ -2,6 +2,16 @@
 //VARS
 @use 'design-system' as *;
 
+body {
+  // Verhindert, dass Content von der Nav verdeckt wird
+  padding-bottom: 8rem; // Platz für Mobile Nav unten
+
+  @media (min-width: 768px) {
+    padding-bottom: 0;
+    padding-left: 8rem; // Platz für Desktop Nav links
+  }
+}
+
 .color-primary{
   color: $color-primary;
 };
@@ -84,46 +94,119 @@ html{
   width: 100%;
 }
 
-header{
-
+.side-nav {
   position: fixed;
-    top: $spacing-4;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - #{$spacing-6} * 2);
-    height: 3.5rem;
-    max-width: $wide-width;
-    z-index: 1000;
-    
-    background: rgba($color-surface-container, .5); // Dunkelgrau (#1a1c1d) mit Transparenz
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: $radius-xl; // Abgerundete Ecken (16px)
-    padding: $spacing-3 $spacing-6;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: $color-surface; // Helle Schriftfarbe für Kontrast
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  
+  background: rgba($color-surface-container-lowest, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 100px; // Rundet oben und unten perfekt ab
+  border: 2px solid rgba($color-primary, 0.1);
+  transition: transform 0.6s $ease-out-expo, opacity 0.5s ease;
+  overflow: hidden;
 
-    img{
-      width: 5rem;
-      object-fit: cover;
-      // WICHTIG: Das Original-Bild (src) weg-schieben, damit man den Gradienten-Hintergrund sieht
-      object-position: -9999px;
-      
-      // Logo Gradient (Maskierungstechnik)
-      background: $gradient-primary-signature;
-      // Pfad korrigiert: '../img/' geht einen Ordner hoch zu den Bildern
-      -webkit-mask-image: url('../img/es_Zeichenfläche 1 Kopie 3.png');
-      mask-image: url('../img/es_Zeichenfläche 1 Kopie 3.png');
-      -webkit-mask-size: contain;
-      mask-size: contain;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center;
+  // MOBILE: Horizontal unten zentriert
+  bottom: $spacing-6;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  padding: $spacing-2 $spacing-6;
+  gap: $spacing-6;
+  width: calc(100% - 4rem);
+  justify-content: center;
+
+  &.header--hidden {
+    transform: translate(-50%, 150%); // Auf Mobile nach unten ausblenden
+    opacity: 0;
+  }
+
+  // DESKTOP: Vertikal oben links
+  @media (min-width: 768px) {
+    top: auto;
+    bottom: $spacing-8;
+    left: $spacing-8;
+    transform: none;
+    flex-direction: column;
+    width: 4.5rem;
+    padding: $spacing-6 $spacing-2;
+    gap: $spacing-6;
+
+    &.header--hidden {
+      transform: translateX(-150%); // Auf Desktop nach links ausblenden
+      opacity: 0;
     }
+  }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px; // 2px Border Breite
+      background: radial-gradient(
+        200px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+        $color-primary,
+        transparent 80%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+}
+
+// Styling für die Navigations-Icons
+.side-nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: row; // Mobile default
+  gap: $spacing-6;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    gap: $spacing-8;
+  }
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-full;
+  transition: background-color 0.3s ease;
+
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+    object-position: center; // Reset gegen Logo-Styles
+    object-fit: contain;
+    -webkit-mask-image: none; // Sicherstellen, dass keine Maske vererbt wird
+    mask-image: none;
+    background: none; // Reset gegen Logo-Gradient
+    // Färbt die Icons in $color-primary (#ff6b00)
+    filter: brightness(0) saturate(100%) invert(46%) sepia(97%) saturate(2335%) hue-rotate(1deg) brightness(102%) contrast(105%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  &:hover .nav-icon, &.is-active .nav-icon {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1); // Icons werden weiß auf Hover oder wenn aktiv
+  }
 }
 
 //NAV
@@ -153,6 +236,45 @@ nav{
   align-items: flex-end;
   position: relative; // Wichtig für absolute Positionierung des Bildes
   overflow: hidden; // Verhindert Sidescroll durch das ::before Element
+
+  &__branding {
+    position: absolute;
+    top: $spacing-8;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: $wide-width;
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    z-index: 10;
+    padding: 0 $spacing-6; // Aligned mit dem Content-Padding
+  }
+
+  &__logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    object-position: -9999px;
+    background: $gradient-primary-signature;
+    -webkit-mask-image: url('../img/es_Zeichenfläche 1 Kopie 3.png');
+    mask-image: url('../img/es_Zeichenfläche 1 Kopie 3.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    border-radius: 0;
+    filter: none !important; // Verhindert, dass das Logo schwarz-weiß wird wie das Hero-Bild
+  }
+
+  &__name {
+    @include type-headline-sm;
+    font-weight: $weight-bold;
+    color: $color-on-surface;
+    white-space: nowrap;
+  }
 
   // Orange Gradient Overlay
   &::before {
@@ -265,10 +387,6 @@ nav{
     @media (min-width: 1200px) {
       flex: 0 0 30%; // Desktop: ca. 3 Karten sichtbar
     }
-
-    .card-portfolio__image {
-      aspect-ratio: 6 / 4 !important; // Erzwungenes 6:4 Verhältnis für alle
-    }
   }
 }
 
@@ -311,3 +429,82 @@ nav{
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); } // Bewegt sich genau um die Hälfte nach links
 }
+
+// TIMELINE STYLES
+.timeline {
+  position: relative;
+  border-left: 2px solid rgba($color-primary, 0.2);
+  padding-left: $spacing-8;
+  margin-left: $spacing-2;
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: $spacing-12;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-#{$spacing-8} - 7px);
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: $color-primary;
+      border-radius: $radius-full;
+      box-shadow: 0 0 15px $color-primary;
+    }
+
+    .timeline-date {
+      @include type-label-md;
+      color: $color-primary;
+      display: block;
+      margin-bottom: $spacing-2;
+    }
+  }
+}
+
+// BENTO GRID
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-6;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+  }
+
+  .bento-item {
+    background: rgba($color-surface-container, 0.4);
+    border: 1px solid rgba($color-on-surface, 0.05);
+    border-radius: $radius-lg;
+    padding: $spacing-8;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: rgba($color-primary, 0.3);
+    }
+
+    &--large { @media (min-width: 768px) { grid-column: span 2; grid-row: span 2; } }
+    &--medium { @media (min-width: 768px) { grid-column: span 2; } }
+    
+    h4 { @include type-label-lg; color: $color-primary; margin-bottom: $spacing-1; }
+    .icon { font-size: 2rem; display: block; margin-bottom: $spacing-4; }
+  }
+}
+
+// PORTFOLIO GRID (DEDICATED PAGE)
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-12 $spacing-6;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sticky-side { @media (min-width: 768px) { position: sticky; top: 8rem; } }

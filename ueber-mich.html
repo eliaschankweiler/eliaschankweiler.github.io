@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/design-system.css">
+  <title>Über Mich | Elia Schankweiler</title>
+</head>
+<body>
+  
+  <nav class="side-nav">
+    <ul class="side-nav__list">
+      <li><a href="index.html" class="nav-link" data-label="Home">
+        <img src="img/icons/house-solid-full.svg" alt="Home" class="nav-icon">
+      </a></li>
+      <li><a href="portfolio.html" class="nav-link" data-label="Portfolio">
+        <img src="img/icons/icons-solid-full.svg" alt="Portfolio" class="nav-icon">
+      </a></li>
+      <li><a href="ueber-mich.html" class="nav-link is-active" data-label="Über mich">
+        <img src="img/icons/user-solid-full.svg" alt="Über mich" class="nav-icon">
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="full-width hero hero--about">
+    <div class="hero__branding wide-width padding--0-6">
+      <img src="./img/es_Zeichenfläche 1 Kopie 3.png" alt="ES" class="hero__logo">
+      <span class="hero__name">Elia Schankweiler</span>
+    </div>
+
+    <div class="flex-group container wide-width">
+      <div class="padding--0-6 padding--16-0 flex-group flex-col justify-center">
+        <p class="color-primary">Kreativität trifft Technik</p>
+        <h1 class="type-headline-large"><span class="gradient-text">Hinter den Pixeln.</span></h1>
+        <h2 class="type-headline-large">Wer ich bin & was mich antreibt.</h2>
+      </div>
+      <!-- Hier ein anderes Bild von dir einfügen -->
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="Elia Schankweiler Portrait" class="hero__img-about">
+    </div>
+  </section>
+
+  <!-- INTRO & VITA -->
+  <section class="section-break wide-width padding--0-6">
+    <div class="layout-editorial">
+      <div class="sticky-side">
+        <h2 class="type-headline-large">Mein Weg</h2>
+        <p class="type-body-lg" style="margin-top: 1rem; opacity: 0.7;">Vom ersten Entwurf bis zum fertigen digitalen Produkt.</p>
+      </div>
+      
+      <div class="layout-editorial__body">
+        <p style="margin-bottom: 4rem;">
+          Seit ich denken kann, fasziniert mich die Schnittstelle zwischen Ästhetik und Funktion. Als Mediengestalter Digital 
+          betrachte ich Design nicht nur als Oberfläche, sondern als Lösung für komplexe Probleme. Mein Ziel ist es, 
+          emotionale Erlebnisse zu schaffen, die technologisch auf höchstem Niveau funktionieren.
+        </p>
+
+        <!-- VITA TIMELINE -->
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-date">2021 — Heute</span>
+            <h3 class="type-headline-sm">Mediengestalter Digital</h3>
+            <p>Fokus auf UI/UX Design und Frontend-Entwicklung in einer inhabergeführten Agentur.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2018 — 2021</span>
+            <h3 class="type-headline-sm">Ausbildung Mediengestaltung</h3>
+            <p>Schwerpunkt Gestaltung und Technik. Abschluss mit Auszeichnung der IHK.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2017</span>
+            <h3 class="type-headline-sm">Praktikum Motion Design</h3>
+            <p>Erste Schritte in After Effects und der Welt der bewegten Bilder.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO GRID SECTION -->
+  <section class="section-break wide-width padding--0-6">
+    <h2 class="type-headline-large" style="margin-bottom: 3rem;">Short Facts</h2>
+    <div class="bento-grid">
+      <div class="bento-item bento-item--large">
+        <h3 class="type-headline-sm">Meine Philosophie</h3>
+        <p>Gutes Design ist unsichtbar. Es leitet den Nutzer intuitiv und lässt die Technik in den Hintergrund rücken, während das Erlebnis im Vordergrund steht.</p>
+      </div>
+      <div class="bento-item bento-item--small">
+        <span class="icon">📍</span>
+        <h4>Location</h4>
+        <p>Ansässig in Deutschland, bereit für Remote-Work weltweit.</p>
+      </div>
+      <div class="bento-item bento-item--small">
+        <span class="icon">☕</span>
+        <h4>Fuel</h4>
+        <p>Angetrieben durch guten Kaffee und neue Frameworks.</p>
+      </div>
+      <div class="bento-item bento-item--medium">
+        <h3 class="type-headline-sm">Tech Stack</h3>
+        <div class="flex-group gap-2" style="flex-wrap: wrap; margin-top: 1rem;">
+          <span class="chip">Figma</span>
+          <span class="chip">Sass</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">GSAP</span>
+          <span class="chip">React</span>
+        </div>
+      </div>
+      <div class="bento-item bento-item--medium">
+        <h3 class="type-headline-sm">Interessen</h3>
+        <p>Fotografie, generative Kunst und die Erkundung von KI im kreativen Prozess.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="section-break wide-width padding--0-6" style="text-align: center;">
+    <h2 class="type-headline-md">Lust auf eine Zusammenarbeit?</h2>
+    <div style="margin-top: 2.5rem;">
+      <a href="mailto:hallo@eliaschankweiler.de" class="btn-primary">Schreib mir eine E-Mail</a>
+    </div>
+  </section>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="custom-cursor">
+    <span class="cursor-label"></span>
+  </div>
+
+  <script src="js/card-glow.js"></script>
+  <script>
+    // Kleiner Fix für den Cursor-Text auf der neuen Seite
+    document.querySelectorAll('.bento-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorLabel.innerText = 'Info');
+    });
+  </script>
+</body>
+</html>

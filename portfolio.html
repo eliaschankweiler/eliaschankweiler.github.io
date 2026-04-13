@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/design-system.css">
+  <title>Portfolio | Elia Schankweiler</title>
+</head>
+<body>
+  
+  <nav class="side-nav">
+    <ul class="side-nav__list">
+      <li><a href="index.html" class="nav-link" data-label="Home">
+        <img src="img/icons/house-solid-full.svg" alt="Home" class="nav-icon">
+      </a></li>
+      <li><a href="portfolio.html" class="nav-link is-active" data-label="Portfolio">
+        <img src="img/icons/icons-solid-full.svg" alt="Portfolio" class="nav-icon">
+      </a></li>
+      <li><a href="ueber-mich.html" class="nav-link" data-label="Über mich">
+        <img src="img/icons/user-solid-full.svg" alt="Über mich" class="nav-icon">
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="full-width hero hero--portfolio">
+    <div class="hero__branding wide-width padding--0-6">
+      <img src="./img/es_Zeichenfläche 1 Kopie 3.png" alt="ES" class="hero__logo">
+      <span class="hero__name">Elia Schankweiler</span>
+    </div>
+
+    <div class="flex-group container wide-width">
+      <div class="padding--0-6 padding--16-0 flex-group flex-col justify-center">
+        <p class="color-primary">Ausgewählte Arbeiten</p>
+        <h1 class="type-headline-large"><span class="gradient-text">Portfolio.</span></h1>
+        <h2 class="type-headline-large">Digitale Lösungen & kreative Konzepte.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="section-break wide-width padding--0-6">
+    <div class="portfolio-grid">
+      
+      <!-- Projekt 1 -->
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800" alt="Projekt 1" class="card-portfolio__image">
+        </div>
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Projekt Alpha</h3>
+          <p class="card-portfolio__description">Ein Redesign für eine E-Commerce Plattform mit Fokus auf UX.</p>
+          <span class="chip">Web Design</span>
+        </div>
+      </article>
+
+      <!-- Projekt 2 -->
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800" alt="Projekt 2" class="card-portfolio__image">
+        </div>
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Brand Identity Beta</h3>
+          <p class="card-portfolio__description">Entwicklung eines kompletten Corporate Designs für ein Startup.</p>
+          <span class="chip">Branding</span>
+        </div>
+      </article>
+
+      <!-- Projekt 3 -->
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800" alt="Projekt 3" class="card-portfolio__image">
+        </div>
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">App Konzept Gamma</h3>
+          <p class="card-portfolio__description">Prototyping einer Social Media Applikation für Musiker.</p>
+          <span class="chip">UI / UX</span>
+        </div>
+      </article>
+
+      <!-- Projekt 4 -->
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800" alt="Projekt 4" class="card-portfolio__image">
+        </div>
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Motion Design Delta</h3>
+          <p class="card-portfolio__description">Explainer-Video und Animationen für ein Tech-Produkt.</p>
+          <span class="chip">Animation</span>
+        </div>
+      </article>
+
+      <!-- Projekt 5 -->
+      <article class="project-item">
+        <div class="card-portfolio">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" alt="Projekt 5" class="card-portfolio__image">
+        </div>
+        <div class="card-portfolio__body">
+          <h3 class="card-portfolio__title">Epsilon Dashboard</h3>
+          <p class="card-portfolio__description">Data Visualization für ein Analytics-Tool.</p>
+          <span class="chip">UI Design</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="custom-cursor">
+    <span class="cursor-label"></span>
+  </div>
+
+  <script src="js/card-glow.js"></script>
+</body>
+</html>

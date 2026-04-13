@@ -1,5 +1,19 @@
 const cursor = document.getElementById('custom-cursor');
 const cursorLabel = cursor.querySelector('.cursor-label');
+const header = document.querySelector('.side-nav');
+let lastScrollY = window.scrollY;
+
+// Header Hide/Show Logik
+window.addEventListener('scroll', () => {
+  if (window.scrollY > lastScrollY && window.scrollY > 100) {
+    // Scroll nach unten -> Verstecken (nach links)
+    header.classList.add('header--hidden');
+  } else {
+    // Scroll nach oben -> Zeigen
+    header.classList.remove('header--hidden');
+  }
+  lastScrollY = window.scrollY;
+});
 
 // Deaktivieren auf Touch-Geräten
 if (window.matchMedia("(pointer: coarse)").matches) {
@@ -13,17 +27,17 @@ window.addEventListener('mousemove', (e) => {
 });
 
 // Interaktive Elemente für den Label-Effekt
-document.querySelectorAll('.btn-primary, .project-item, header nav a, .btn-editorial').forEach(el => {
+document.querySelectorAll('.btn-primary, .project-item, .nav-link, .btn-editorial').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cursor.classList.add('active');
     
     // Text-Logik
     if (el.classList.contains('project-item')) {
-      // Nimm die Headline aus der Karte
       const title = el.querySelector('.card-portfolio__title').innerText;
       cursorLabel.innerText = title;
+    } else if (el.hasAttribute('data-label')) {
+      cursorLabel.innerText = el.getAttribute('data-label');
     } else {
-      // Nimm den Text des Buttons/Links
       cursorLabel.innerText = el.innerText;
     }
   });
@@ -35,7 +49,7 @@ document.querySelectorAll('.btn-primary, .project-item, header nav a, .btn-edito
 }
 
 // Spotlight Effekt beibehalten
-document.querySelectorAll('.card-portfolio, .btn-primary').forEach(card => {
+document.querySelectorAll('.card-portfolio, .btn-primary, .side-nav').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
