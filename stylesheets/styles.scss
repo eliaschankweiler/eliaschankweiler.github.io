@@ -507,4 +507,15 @@ nav{
   }
 }
 
+// Spezifisches Grid für Case Studies (max 2 Spalten)
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-6;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .sticky-side { @media (min-width: 768px) { position: sticky; top: 8rem; } }
