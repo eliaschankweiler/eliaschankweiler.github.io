@@ -500,6 +500,15 @@ nav{
   grid-template-columns: 1fr;
   gap: $spacing-12 $spacing-6;
 
+  @media (max-width: 767px) {
+    .project-item {
+      position: sticky;
+      top: 6rem; // Gleicher Abstand wie beim Home-Slider
+      background-color: $color-surface; // Verhindert Durchscheinen
+      padding-bottom: $spacing-10; // Puffer für den Schattenwurf beim Stapeln
+    }
+  }
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
