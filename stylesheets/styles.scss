@@ -4,7 +4,7 @@
 
 body {
   // Verhindert, dass Content von der Nav verdeckt wird
-  padding-bottom: 8rem; // Platz für Mobile Nav unten
+  padding-bottom: 12rem !important; // Puffer für Mobile Nav nochmals leicht erhöht
 
   @media (min-width: 768px) {
     padding-bottom: 0;
@@ -100,7 +100,7 @@ html{
   display: flex;
   align-items: center;
   
-  background: rgba($color-surface-container-lowest, 0.85);
+  background: rgba($color-surface-container-lowest, 0.5);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 100px; // Rundet oben und unten perfekt ab
@@ -145,12 +145,13 @@ html{
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      padding: 2px; // 2px Border Breite
-      background: radial-gradient(
-        200px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-        $color-primary,
-        transparent 80%
-      );
+          padding: 2px; // Die Breite der Border
+    background: radial-gradient(
+      400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+      $color-primary, // Schwarzer Glow-Effekt
+      transparent 80%
+    );
+    // Maskierung: Zeige nur den Bereich des Paddings (die Border)
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
@@ -198,14 +199,15 @@ html{
     -webkit-mask-image: none; // Sicherstellen, dass keine Maske vererbt wird
     mask-image: none;
     background: none; // Reset gegen Logo-Gradient
-    // Färbt die Icons in $color-primary (#ff6b00)
-    filter: brightness(0) saturate(100%) invert(46%) sepia(97%) saturate(2335%) hue-rotate(1deg) brightness(102%) contrast(105%);
+    // Färbt die Icons standardmäßig in $color-on-surface (#212121)
+    filter: invert(8%) sepia(0%) saturate(0%) hue-rotate(173deg) brightness(96%) contrast(92%);
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
   &:hover .nav-icon, &.is-active .nav-icon {
     transform: scale(1.1);
-    filter: brightness(0) invert(1); // Icons werden weiß auf Hover oder wenn aktiv
+    // Icons werden in $color-surface (#FAC805) gefärbt, wenn aktiv/hover
+    filter: brightness(0) saturate(100%) invert(86%) sepia(48%) saturate(3620%) hue-rotate(354deg) brightness(103%) contrast(101%);
   }
 }
 
@@ -252,8 +254,8 @@ nav{
   }
 
   &__logo {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
     object-fit: cover;
     object-position: -9999px;
     background: $gradient-primary-signature;
@@ -269,12 +271,6 @@ nav{
     filter: none !important; // Verhindert, dass das Logo schwarz-weiß wird wie das Hero-Bild
   }
 
-  &__name {
-    @include type-headline-sm;
-    font-weight: $weight-bold;
-    color: $color-on-surface;
-    white-space: nowrap;
-  }
 
   // Orange Gradient Overlay
   &::before {
@@ -301,6 +297,12 @@ nav{
     > div {
       position: relative;
       z-index: 2;
+      width: 100%; // Nutze volle Breite auf Mobile
+      padding-bottom: 8rem !important; // Mehr Platz auf Mobile für eine bessere visuelle Balance
+
+      @media (min-width: 768px) {
+        padding-bottom: $spacing-8;
+      }
     }
 
     // Ab Tablet/Desktop wieder nebeneinander
@@ -319,16 +321,16 @@ nav{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 5rem;
+    height: 5rem;
     object-fit: cover;
     z-index: 1;
 
     @media (min-width: 768px) {
       // Desktop: Reset auf normales Verhalten im Flow
       position: static;
-      width: 50%;
-      height: auto;
+      width: 5rem;
+      height: 5rem;
       max-height: 100%;
     }
   }
@@ -518,4 +520,73 @@ nav{
   }
 }
 
+// SLIDESHOW GALLERY (Single Image Focus)
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  margin-top: $spacing-4;
+
+  .slideshow-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 6 / 4;
+    overflow: hidden;
+    border-radius: $radius-lg;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s $ease-out-expo, visibility 0.6s;
+    z-index: 1;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+  }
+
+  .slideshow-nav {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-4;
+    margin-top: $spacing-6;
+    
+    .btn-nav {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: $spacing-2;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+      
+      img {
+        width: 32px;
+        height: 32px;
+        filter: brightness(0);
+      }
+    }
+  }
+}
+
 .sticky-side { @media (min-width: 768px) { position: sticky; top: 8rem; } }
+
+// PHOTOGRAPHY PAGE OVERRIDES
+.page-photography {
+  @media (max-width: 767px) {
+    .card-portfolio__image {
+      aspect-ratio: auto !important; // Originalverhältnis erzwingen
+      object-fit: contain; // Verhindert Anschnitt
+    }
+
+    .slideshow-inner {
+      aspect-ratio: 2 / 3 !important; // Vertikales Format für die Slideshow auf Mobile
+    }
+  }
+}

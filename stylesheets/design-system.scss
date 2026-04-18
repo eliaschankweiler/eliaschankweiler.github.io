@@ -52,20 +52,20 @@
 // =============================================================================
 
 // --- Foundation ---
-$color-surface:                   #e7e7e7;  // Base canvas (warm light grey)
+$color-surface:                   #FAC805;  // Base canvas (warm light grey)
 $color-on-surface:                #212121;  // Primary body copy (softened black)
 $color-on-surface-pure:           #171717;  // Pure black — Display headings only
 
 // --- Primary / Accent ---
-$color-primary:                    #ff6b00 ;  // Interactive / hover states
-$color-primary-container:         #a04100;  // CTAs, underlines, focal accent
+$color-primary:                    #212121;  // Black for Buttons and Hover Effects
+$color-primary-container:         #212121;  // CTAs, underlines, focal accent
 
 // --- Surface Container Tiers (Layering Principle) ---
-$color-surface-container-lowest:  #dedede;  // Cards / interactive modules (Level 2)
+$color-surface-container-lowest:  #a68500;  // Cards / interactive modules (Level 2)
 $color-surface-container-low:     #4d4946;  // Secondary content sections (Level 1)
-$color-surface-container:         #dedede;  // General contained surfaces
-$color-surface-container-high:    #dedee2;  // Hover backgrounds for list items
-$color-surface-container-highest: #4d4946;  // Chip / tag backgrounds
+$color-surface-container:         #a68500;  // General contained surfaces
+$color-surface-container-high:    #a68500;  // Hover backgrounds for list items
+$color-surface-container-highest: #a68500;  // Chip / tag backgrounds
 
 // --- On-Color ---
 $color-on-primary:                #ffffff;
@@ -262,8 +262,8 @@ $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 // Signature texture gradient for hero CTAs (prevents flat orange)
 $gradient-primary-signature: linear-gradient(
   135deg,
-  $color-primary 0%,
-  $color-primary-container 100%
+  $color-surface 0%,
+  $color-on-surface 75%
 );
 
 
@@ -284,42 +284,46 @@ $gradient-primary-signature: linear-gradient(
 // Display — Epilogue, pure black
 @mixin type-display-lg {
   font-family: $font-headline;
-  font-size: $type-display-lg;
+  font-size: 2.75rem; // Mobile Scale
+  @media (min-width: 768px) { font-size: $type-display-lg; } // Desktop: 5rem
   font-weight: $weight-black;
   line-height: $line-height-tight;
   color: $color-on-surface-pure;
   letter-spacing: $letter-spacing-lg;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 @mixin type-display-md {
   font-family: $font-headline;
-  font-size: $type-display-md;
+  font-size: 2.25rem; // Mobile Scale
+  @media (min-width: 768px) { font-size: $type-display-md; } // Desktop: 3.5rem
   font-weight: $weight-black;
   line-height: $line-height-tight;
   color: $color-on-surface-pure;
   letter-spacing: $letter-spacing-md;
-
+  word-wrap: break-word;
 }
 
 @mixin type-display-sm {
   font-family: $font-headline;
-  font-size: $type-display-sm;
+  font-size: 1.75rem; // Mobile Scale
+  @media (min-width: 768px) { font-size: $type-display-sm; } // Desktop: 2rem
   font-weight: $weight-bold;
   line-height: $line-height-snug;
   color: $color-on-surface-pure;
   letter-spacing: $letter-spacing-sm;
-
 }
 
 // Headline — Manrope
 @mixin type-headline-lg {
   font-family: $font-headline;
-  font-size: $type-headline-lg;
+  font-size: 1.5rem; // Mobile Scale
+  @media (min-width: 768px) { font-size: $type-headline-lg; } // Desktop: 1.875rem
   font-weight: $weight-bold;
   line-height: $line-height-snug;
   color: $color-on-surface;
   letter-spacing: $letter-spacing-lg;
-
 }
 
 @mixin type-headline-md {

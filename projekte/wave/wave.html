@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../stylesheets/styles.css">
+  <link rel="stylesheet" href="../../stylesheets/design-system.css">
+  <title>Wave Energy | Elia Schankweiler</title>
+</head>
+<body>
+  
+  <nav class="side-nav">
+    <ul class="side-nav__list">
+      <li><a href="../../index.html" class="nav-link" data-label="Home">
+        <img src="../../img/icons/house-solid-full.svg" alt="Home" class="nav-icon">
+      </a></li>
+      <li><a href="../../portfolio.html" class="nav-link is-active" data-label="Portfolio">
+        <img src="../../img/icons/icons-solid-full.svg" alt="Portfolio" class="nav-icon">
+      </a></li>
+      <li><a href="../../ueber-mich.html" class="nav-link" data-label="Über mich">
+        <img src="../../img/icons/user-solid-full.svg" alt="Über mich" class="nav-icon">
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="full-width hero">
+    <div class="hero__branding wide-width padding--0-6">
+      <a href="../../index.html">
+        <img src="../../img/es_Zeichenfläche 1 Kopie 3.png" alt="ES" class="hero__logo">
+      </a>
+    </div>
+
+    <div class="flex-group container wide-width">
+      <div class="padding--0-6 padding--16-0 flex-group flex-col justify-center">
+        <p class="color-primary">Branding, Produktdesign, UI/UX & Development</p>
+        <h1 class="type-headline-large"><span class="gradient-text">Wave Energy</span></h1>
+        <h2 class="type-headline-large">Die smarte Alternative zum klassischen Energy-Drink.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: TITELBILD -->
+  <section class="section-break wide-width padding--0-6">
+    <div class="card-portfolio">
+      <img src="wavetitelbild.png" alt="Wave Energy Hero" class="card-portfolio__image" style="filter: none; aspect-ratio: auto;">
+    </div>
+  </section>
+
+  <!-- INTRO SECTION -->
+  <section class="section-break wide-width padding--0-6">
+    <div class="layout-editorial">
+      <div class="sticky-side">
+        <h2 class="type-headline-large">Das Projekt</h2>
+        <p class="type-body-lg" style="margin-top: 1rem; opacity: 0.7;">Superfood trifft Erfrischung.</p>
+      </div>
+      
+      <div class="layout-editorial__body">
+        <p style="margin-bottom: 2rem;">
+          Wave Energy ist mehr als nur ein Drink – es ist eine Revolution im Kühlregal. Basierend auf Wasser, Aminosäuren, Vitaminen und Elektrolyten bietet es Energie ohne den typischen "Crash". 
+        </p>
+        <p style="margin-bottom: 3rem;">
+          In diesem Projekt war ich für den kompletten Prozess verantwortlich: Von der visuellen Identität der Marke über das User Interface bis hin zur funktionalen Frontend-Programmierung mit interaktiven Animationen.
+        </p>
+
+      <!-- DOWNLOAD BUTTONS -->
+        <div class="flex-group gap-6">
+          <a href="Konzept_Digital_Branding_Wave_Elia.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer">Konzept ansehen (PDF)</a>
+        </div>
+    </div>
+  </section>
+
+  <!-- SECTION: BRANDING & WORDMARKE -->
+  <section class="section-break wide-width padding--0-6">
+    <h3 class="type-headline-large" style="margin-bottom: 2rem;">Branding</h3>
+    <div class="grid-2">
+      <div class="card-portfolio">
+        <img src="wave-logo.png" alt="Wave Logo" class="card-portfolio__image" style="filter: none;">
+      </div>
+      <div class="card-portfolio">
+        <img src="Soda_Can_Mockup_2.png" alt="Wave Produktdesign" class="card-portfolio__image" style="filter: none; object-fit: contain;">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: UI/UX & DEVELOPMENT -->
+  <section class="section-break wide-width padding--0-6">
+    <h3 class="type-headline-large" style="margin-bottom: 2rem;">Web & Programmierung</h3>
+    <div class="full-width">
+      <div class="card-portfolio">
+        <img src="was-ist-wave.png" alt="Wave Webdesign" class="card-portfolio__image" style="filter: none; aspect-ratio: auto;">
+      </div>
+    </div>
+    <div class="layout-editorial" style="margin-top: 4rem;">
+      <h2 class="type-headline-md">Interaktive Erlebnisse</h2>
+      <div class="layout-editorial__body">
+        <p>
+          Die Website wurde mit Fokus auf Interaktion entwickelt. Mittels JavaScript habe ich ein dynamisches Animation-System implementiert, das auf Mausbewegungen reagiert und den Elementen eine haptische Tiefe verleiht ("Floating Effect").
+        </p>
+        <div style="margin-top: 2.5rem;">
+          <a href="website/wave/index.html" class="btn-primary" target="_blank">Zur Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="section-break wide-width padding--0-6" style="text-align: center; border-top: 1px solid rgba(255,230,212,0.1);">
+    <div style="margin-top: 1rem;">
+      <a href="../../portfolio.html" class="btn-primary">Zurück zum Portfolio</a>
+    </div>
+  </section>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="custom-cursor">
+    <span class="cursor-label"></span>
+  </div>
+
+  <script src="../../js/card-glow.js"></script>
+  <script>
+    // Spezifischer Cursor-Text für interaktive Bereiche
+    document.querySelectorAll('.card-portfolio').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorLabel.innerText = 'View');
+    });
+  </script>
+</body>
+</html>

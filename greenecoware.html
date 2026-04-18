@@ -64,8 +64,8 @@
         
         <!-- DOWNLOAD BUTTONS -->
         <div class="flex-group gap-6">
-          <a href="projekte/greenecoware/konzept_elia_schankweiler.pdf" class="btn-primary" download>Konzept Download (PDF)</a>
-          <a href="projekte/greenecoware/styleguide_greenecoware.pdf" class="btn-primary" download>Styleguide (PDF)</a>
+          <a href="projekte/greenecoware/konzept_elia_schankweiler.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer">Konzept ansehen (PDF)</a>
+          <a href="projekte/greenecoware/styleguide_greenecoware.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer">Styleguide ansehen</a>
         </div>
       </div>
     </div>
@@ -120,9 +120,8 @@
 
   <!-- FOOTER CTA -->
   <section class="section-break wide-width padding--0-6" style="text-align: center; border-top: 1px solid rgba(255,230,212,0.1);">
-    <h2 class="type-headline-md">Interesse an ähnlichen Projekten?</h2>
-    <div style="margin-top: 2rem;">
-      <a href="portfolio.html" class="btn-editorial">Zurück zur Übersicht</a>
+    <div style="margin-top: 1rem;">
+      <a href="portfolio.html" class="btn-primary">Zurück zum Portfolio</a>
     </div>
   </section>
 
@@ -133,9 +132,9 @@
 
   <script src="js/card-glow.js"></script>
   <script>
-    // Spezifischer Cursor-Text für die Download-Buttons
-    document.querySelectorAll('.btn-primary[download]').forEach(el => {
-      el.addEventListener('mouseenter', () => cursorLabel.innerText = 'Download');
+    // Spezifischer Cursor-Text für PDF & Externe Links
+    document.querySelectorAll('.btn-primary[target="_blank"]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorLabel.innerText = 'Öffnen');
     });
   </script>
 </body>
