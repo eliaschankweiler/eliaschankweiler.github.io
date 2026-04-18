@@ -496,8 +496,8 @@ nav{
 
 // PORTFOLIO GRID (DEDICATED PAGE)
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: $spacing-12 $spacing-6;
 
   @media (max-width: 767px) {
@@ -510,6 +510,7 @@ nav{
   }
 
   @media (min-width: 768px) {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
