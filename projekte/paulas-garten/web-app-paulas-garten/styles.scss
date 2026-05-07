@@ -1,0 +1,985 @@
+html{overflow-x:hidden;}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+ 
+  position: relative;
+}
+
+// Variables
+
+  $stielgruen: #75A394;
+  $blattgruen: #3C5555;
+  $zitronengelb: #FFFEDD;
+  $font-family-regular: "Lufga Regular", sans-serif;
+  $font-family-bold: "Lufga Bold", sans-serif;
+
+  $radius: 40px;
+
+//Body Einstellungen
+
+
+body{
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  overflow-x: hidden;
+}  
+
+
+//Schriften
+h1,h2,h3,h4,h5,h6{
+  font-family: $font-family-bold;
+  color: $zitronengelb;
+  hyphens: auto;
+  hyphenate-limit-chars:10 4 4;
+}
+
+
+h2{
+  font-size: 45px;
+  font-size: clamp(2.1875rem, 1.9792rem + 0.9524vw, 2.8125rem);
+  margin: 0;
+}
+
+h3{
+  font-size: 35px;
+  font-size: clamp(1.5625rem, 1.3542rem + 0.9524vw, 2.1875rem);
+  margin:0;
+}
+
+h4{
+  font-size: 30px;
+  font-size: clamp(1.25rem, 1.0417rem + 0.9524vw, 1.875rem);
+  margin: 0;
+}
+
+p{
+  font-family: $font-family-regular;
+  color: $zitronengelb;
+  font-size: 21px;
+  font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+  line-height: calc(21px * 1.4);
+  hyphens: auto;
+  hyphenate-limit-chars:10 4 4;
+}
+
+
+img{
+    display: block;
+}
+
+//Hintergrund
+
+.bg{
+  background: #75A394;
+  background: linear-gradient(135deg, $stielgruen 0%, $blattgruen 100%);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100%;
+}
+
+.bg-transparent{
+      background-color: rgba($color: $blattgruen, $alpha: .75);
+      padding: 2rem;
+      border-radius: $radius;
+    }
+
+//Hintergrund Startseite
+.bg-menu {
+  background: #75A394;
+  background: linear-gradient(135deg, $stielgruen 0%, $blattgruen 100%);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+}
+
+//Wrapper for menu
+.wrapper-menu{
+  padding: 3rem 10rem 0rem;
+}
+
+//Menu-Grid
+nav.menu{
+    
+  width: 100%;
+  padding: unset;
+  height:80vh;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3.5rem;
+}
+  
+// Grid-Areas
+#freude{grid-row: 1/ span 3 ; grid-column: 1/ span 3; }
+#lovestory{grid-row: 1/ span 2; grid-column: 4/ span 3;}
+#angebote{grid-row:1/ span 2; grid-column: 7/ span 3;}
+#events{grid-row: 3/ span 1; grid-column: 4/ span 2;}
+#news{grid-row: 3/ span 1; grid-column: 6/ span 2;}
+#entdecken{grid-row: 3/ span 1; grid-column: 8/ span 2;}
+
+//Grid-Items
+
+.menu-item{
+    position: initial;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    a{
+        display: block;
+        height: 100%;
+        overflow: visible;
+        
+        .menu-item-mask{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: $radius;
+            width: 100%;
+
+
+            &>img{
+                aspect-ratio: 1;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+        }
+
+        &>img{
+            position: absolute;
+            aspect-ratio: 1;
+            object-fit: cover;
+            overflow: visible;
+            max-height: 40% !important;
+            top: 10%;
+            right: -10%;
+            left: auto;
+        }
+    }
+}
+
+  #freude, #lovestory, #angebote, #events, #news, #entdecken{
+    width: auto;
+    height: auto;
+      img{
+        aspect-ratio: 1;
+        object-fit: cover;
+        height: 100%;
+      }
+  }
+
+
+  //Relative Positionierung Grid-Items
+  /*
+  #freude, #lovestory, #angebote, #events, #news, #entdecken{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+  }
+  */
+
+  //Gradient über Bg-Image
+  .bg-gradient{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    mix-blend-mode: multiply;
+
+    background: #3C5555;
+    background: linear-gradient(180deg, rgba(60, 85, 85, 0) 0%, rgba(60, 85, 85, 1) 70%);
+  }
+
+  //Titel über Bg-Image
+  .overlay-title{
+    position: absolute;
+    bottom: 25px;
+    padding: 0px 15px;
+  }
+
+  //Logo-Img
+  .logo-container{
+    margin-top: 1rem;
+    height: 75px;
+    width: auto;
+    position: absolute;
+    right: 150px;
+    bottom: 10px;
+    .logo{
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .hero-logo{
+    height: 100px !important;
+    object-fit: contain !important;
+    width: 100px !important;
+    position: relative;
+    right: 50px;
+    top:50px;
+    padding: 1rem;
+    border-radius:$radius;
+    background-color: rgba($color: $stielgruen, $alpha: .8);
+
+
+  }
+
+  //Home-Button
+  .home-button-container{
+    position: fixed;
+    bottom: 0px;
+    right: 8vw;
+    height: 100px;
+    width: 100px;
+    background-color: $zitronengelb;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+      
+      a{
+        display: flex;
+        justify-content: center;
+
+        .home-button-bg{
+          position: absolute;
+          background-color: $blattgruen;
+          width: 90%;
+          height: 90px;
+          border-radius: 100px;
+          top: 5px;
+
+          
+
+          .home-button{
+            fill: $zitronengelb;
+            width: 50px;
+            height: auto;
+            position: relative;
+            top: 5px;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            top: 50%;
+          }
+        }
+  }
+}
+
+
+@media screen and (max-width: 1280px) {
+
+  nav.menu{
+    width: 100%;
+    padding: unset;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 3.5rem;
+
+
+    h2,h4{
+        font-size: 35px;
+        padding: 0 50px;
+    }
+
+    img{
+        aspect-ratio: unset !important;
+    }
+  }
+
+    #freude{grid-row: 1; grid-column:1/ span 6;}
+#lovestory{grid-row: 1 ; grid-column: 7/ span 6}
+#angebote{grid-row: 2 ; grid-column:1/ span 6}
+#events{grid-row: 2; grid-column: 7/ span 6;}
+#news{grid-row: 3; grid-column: 1/ span 6;}
+#entdecken{grid-row: 3; grid-column: 7 /span 6;}
+
+  .logo-container{
+    right: 50px;
+  }
+
+  //Neue Grid-Einstellungen
+
+.wrapper-menu{
+  padding: 3rem 2rem 10rem;
+}
+
+}
+
+@media screen and (max-width: 750px) {
+
+nav.menu{
+    height: 200vh;
+  width: 100%;
+  gap: unset;
+  row-gap: 3rem;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(9, 1fr) !important;
+}
+
+#freude{grid-row: 1; grid-column:1/ -1;}
+#lovestory{grid-row: 2 ; grid-column:1/ -1;}
+#angebote{grid-row: 3 ; grid-column:1/ -1}
+#events{grid-row: 4; grid-column: 1/ -1;}
+#news{grid-row: 5; grid-column: 1/ -1;}
+#entdecken{grid-row: 6; grid-column: 1 / -1;}
+  
+}
+
+
+  //Hero
+
+  .hero{
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+
+    img{
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .hero-position{
+      position: absolute;
+      bottom: 150px;
+    }
+  }
+
+  .hero-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    p{
+      width: 100%;
+      max-width: 700px;
+      margin: unset;
+      border-radius: $radius;
+
+    }
+
+    svg{
+      position: absolute;
+      height: 2rem;
+      fill: $zitronengelb;
+      bottom: -5rem;
+    }
+
+  }
+
+  .stack-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  //Freude schenken
+  .freude-schenken-bg{
+    background-image: url(./assets/images/chrysantheme.jpg);
+  }
+
+  .form-background{
+    padding: 5rem;
+  }
+
+  .form-wrapper{
+    padding: 3rem;
+    background-color: $zitronengelb;
+    border-radius: $radius;
+
+    h3{
+      padding-bottom: 2rem;
+    }
+    
+
+    h3,h4,p{
+      color: $blattgruen;
+    }
+
+     form{
+      width: 100%;
+      flex: 50;}
+
+    .form-group-1{
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+
+
+      .form-group-1-inputs{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        p{
+            margin: 0;
+        }
+      }
+
+      select{
+        background-color: $blattgruen;
+        padding: .5rem  2rem;
+        border-radius: $radius;
+        color: $zitronengelb;
+        font-family: "Lufga Regular", sans-serif;
+        font-size: 21px;
+        font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+      }
+
+      p{
+        span{
+         font-family: "Lufga Bold", sans-serif; 
+        }
+      }
+
+      label{
+        color: $blattgruen;
+        font-family: "Lufga Regular", sans-serif;
+        font-size: 21px;
+        display: block;
+
+        
+      }
+    }
+
+     img{
+      height: 100%;
+      max-width: 400px;
+      width: 100%;
+      border-radius: $radius;
+    }
+  }
+
+  .form-group-2{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+      .radio-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+        .row{
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+        }
+
+        .wunsch{
+            label{display: none;}
+        }
+      }
+      .kaeufer{
+         display: flex;
+         flex-direction: column;
+      }
+    }
+
+.inline-label{
+            display: inline-block;
+            font-family: "Lufga regular";
+            font-size: 21px;
+          }
+
+input[type="text"], input[type="number"] {
+    padding: .5rem 2rem;
+    font-size: 21px;
+    font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+    border-radius: 5px;
+    font-family: "Lufga Regular", sans-serif;
+    background-color: $blattgruen;
+    color: $zitronengelb;
+    border-radius: $radius;
+    margin: .5rem .25rem;
+}
+
+
+
+input[type="text"]::placeholder {
+  color: $zitronengelb;
+}
+
+
+.form-footer{
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+
+      .datenschutz{
+        display: flex;
+        gap: .5rem;
+        align-items: flex-start;
+      }
+
+      .arrow-button{
+        background-color: $blattgruen;  
+        border-radius: $radius;
+        padding: 0px 10px 45px 10px;
+        cursor: pointer;
+        height: 45px;
+        
+        svg{
+          fill: $zitronengelb;
+          height: 50px;
+        }
+}
+}
+
+//Einstellungen für Input-Elemente
+
+.beschenkte-person{
+  display: flex;
+  flex-direction: column;
+
+  label{
+    p{
+    font-family: "Lufga Regular", sans-serif;
+    }
+  }
+
+  input[type="text"]{
+    width: 50%;
+    min-width: 500px;
+  }
+}
+
+
+@media screen and (max-width: 1280px){
+  .form-group-1{
+    flex-direction: column;
+    height: 100%;
+
+    img{
+    width: 100%;
+    height: 100%;
+    order: 1;
+    max-width: 750px !important;
+  }
+
+  .form-group-1-inputs{
+    order: 2;
+
+    select{
+    width: 100%;
+    }
+
+  }
+  
+  }
+
+  .form-group-2{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form-footer{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 750px) {
+.form-background{
+  padding: 1rem;
+}
+
+input[type="text"]{
+  width: 100% !important;
+  min-width: unset !important;
+}
+
+.wunsch{
+  display: flex;
+  flex-direction: row;
+
+  }
+
+   
+}
+
+  
+
+
+//Einstellungen für Pop-Up
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background-color: $zitronengelb;
+  padding: 100px 25px 25px 25px;
+  border-radius: $radius;
+  border: 4px solid $blattgruen;
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  
+}
+
+.popup-content img {
+  max-width: 100%;
+  margin-bottom: 25px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 25px; right: 25px;
+  font-size: 24px;
+  cursor: pointer;
+  color: $zitronengelb;
+  background-color: $blattgruen;
+  padding: 3px 10px;
+  border-radius: $radius;
+}
+
+.gutschein-text {
+  position: absolute;
+  transform: translate(80px, -150px);
+  text-align: left;
+
+  p{
+     font-family: "Lufga Bold", sans-serif !important;
+  }
+}
+
+.gutschein-preview{
+  button{
+    background-color: $blattgruen;
+    font-family: "Lufga Bold", sans-serif;
+    color: $zitronengelb;
+    padding: .5rem 1rem;
+    border-radius: $radius;
+    cursor: pointer;
+    font-size: 21px;
+  }
+
+} 
+
+.confirmation-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.confirmation-popup.hidden {
+  display: none;
+}
+
+.confirmation-popup .popup-content {
+  background-color: $zitronengelb;
+  padding: 100px 25px 25px 25px;
+  border-radius: 40px;
+  border: 4px solid $blattgruen; 
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+
+  p{
+    text-align: left;
+    font-family: "Lufga Regular", sans-serif;
+    font-size: 21px;
+    color: $blattgruen !important;
+    line-height: 1.6;
+
+    span{
+      font-family: "Lufga Bold", sans-serif;
+    }
+  }
+}
+
+.confirmation-popup .close-btn {
+  position: absolute;
+  top: 25px; right: 25px;
+  font-size: 21px;
+  cursor: pointer;
+  color: $zitronengelb;
+  background-color: $blattgruen;
+  padding: 3px 10px;
+  border-radius: 40px;
+}
+
+
+  //Paulas Garden Lovestory
+
+  .fixed{
+    position: fixed !important;
+  }
+
+  .group-lovestory{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero-content-lovestory{
+    height: 100%;
+    width: 100%;
+    padding-top: 28rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: end;
+    gap: 3rem;
+
+    p{
+      margin: unset;
+      border-radius: $radius;
+      max-width: 750px;
+      width: unset;
+    }
+
+  }
+
+  //Bluehende Angebote
+  .bluehende-angebote-bg{
+    background-image: url(./assets/images/herbstastern.jpg);
+  }
+
+  .wrapper{
+    padding: 5vw;
+    max-width: 100%;
+  }
+
+  .angebot-wrapper{
+     .overlay-angebot{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 25px;
+    gap: .5rem;
+    padding: 0 25px;
+  }
+}
+
+  .overlay-angebot{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 25px;
+    gap: .5rem;
+
+    .desc-group-additional{
+        
+       p{
+        margin: 0 !important;
+      } 
+    }
+  }
+
+  .card-wrapper{
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+    padding-bottom: 10rem;
+
+  .card{
+    position: relative;
+    border-radius: $radius;
+    overflow: hidden;
+    min-width: 400px;
+    width: 100%;
+    flex: 50;
+    height: 75vh;
+    img{
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+    .preis{
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap:.5rem;
+    }
+  }
+}
+
+.card:nth-child(4){
+  h3{
+    margin-bottom: 1rem;
+  }
+}
+
+
+@media screen and (max-width:1280px) {
+
+  .group-lovestory{
+    padding-bottom: 10rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+
+    .bg-transparent{
+      padding-bottom: 8rem;
+    }
+  }
+  
+}
+
+  //Gruene Events
+
+   .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    mix-blend-mode: multiply;
+
+    background: rgba($color: $blattgruen, $alpha: .8);
+  }
+
+  .angebote-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;    
+    
+    .angebot{
+      overflow: hidden;
+      display: flex;
+      border-radius: $radius;
+      background-color: $zitronengelb;
+      flex: 50;
+      flex-wrap: wrap;
+    
+      .img-container{
+      position: relative;
+      overflow: hidden;
+      min-width: 400px;
+      width: 100%;
+      flex: 50;
+      background-color: $zitronengelb;
+
+        img{
+            display: block;
+          height: 100%;
+          object-fit: cover;    
+          width: 100%;
+          }
+
+          .desc-group{
+            display: flex;
+            gap: 1rem;
+          }
+
+          span{
+            font-family: "Lufga Bold";
+          }
+        }
+      
+      .content-img-container{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 2.5rem;
+        bottom: 0;
+      }
+        }
+
+
+      .text-container{
+        padding: 2.5rem;
+        flex: 50;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        min-width: 550px;
+        
+        p{
+        color: $blattgruen;
+        margin: unset;
+        width: 100%;
+        
+        span{
+            font-family: "Lufga Bold";
+          }
+        }
+
+        .button{
+          cursor: pointer;
+          margin-top: 2rem;
+          text-decoration: none;
+          padding: 10px;
+          background-color: $blattgruen;
+          border-radius: $radius;
+          color: $zitronengelb;
+          font-family: "Lufga Bold", sans-serif;
+          font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          }
+      }
+    }
+  
+
+  @media screen and (max-width: 600px){
+
+    .angebot{
+        flex-direction: column;
+
+    .img-container{
+        height: 100%;
+        min-width: unset !important;
+    }
+
+    .text-container{
+      min-width: unset !important;
+    }
+  }
+}
+
+  //Blueten-News
+  .blueten-news-bg{
+    background-image: url(./assets/images/alpenveilchen.jpg);
+  }
+
+
+   //Gruene Events
+  .gruene-events-bg{
+    background-image: url(./assets/images/herbstanemone-weiß.jpg);
+  }
+
+  //Paulas Garden Entdecken
+  .paulas-garden-entdecken-bg{
+    background-image: url(./assets/images/herbstanemone-rosa.jpg);
+  }
+
+  //Background Img Cover
+  .cover{background-size: cover;}
+
+  
+
+ 

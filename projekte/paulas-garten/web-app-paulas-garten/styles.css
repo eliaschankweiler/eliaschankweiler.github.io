@@ -1,0 +1,890 @@
+@charset "UTF-8";
+html {
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lufga Bold", sans-serif;
+  color: #FFFEDD;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
+}
+
+h2 {
+  font-size: 45px;
+  font-size: clamp(2.1875rem, 1.9792rem + 0.9524vw, 2.8125rem);
+  margin: 0;
+}
+
+h3 {
+  font-size: 35px;
+  font-size: clamp(1.5625rem, 1.3542rem + 0.9524vw, 2.1875rem);
+  margin: 0;
+}
+
+h4 {
+  font-size: 30px;
+  font-size: clamp(1.25rem, 1.0417rem + 0.9524vw, 1.875rem);
+  margin: 0;
+}
+
+p {
+  font-family: "Lufga Regular", sans-serif;
+  color: #FFFEDD;
+  font-size: 21px;
+  font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+  line-height: 29.4px;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
+}
+
+img {
+  display: block;
+}
+
+.bg {
+  background: #75A394;
+  background: linear-gradient(135deg, #75A394 0%, #3C5555 100%);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100%;
+}
+
+.bg-transparent {
+  background-color: rgba(60, 85, 85, 0.75);
+  padding: 2rem;
+  border-radius: 40px;
+}
+
+.bg-menu {
+  background: #75A394;
+  background: linear-gradient(135deg, #75A394 0%, #3C5555 100%);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.wrapper-menu {
+  padding: 3rem 10rem 0rem;
+}
+
+nav.menu {
+  width: 100%;
+  padding: unset;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3.5rem;
+}
+
+#freude {
+  grid-row: 1/span 3;
+  grid-column: 1/span 3;
+}
+
+#lovestory {
+  grid-row: 1/span 2;
+  grid-column: 4/span 3;
+}
+
+#angebote {
+  grid-row: 1/span 2;
+  grid-column: 7/span 3;
+}
+
+#events {
+  grid-row: 3/span 1;
+  grid-column: 4/span 2;
+}
+
+#news {
+  grid-row: 3/span 1;
+  grid-column: 6/span 2;
+}
+
+#entdecken {
+  grid-row: 3/span 1;
+  grid-column: 8/span 2;
+}
+
+.menu-item {
+  position: initial;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.menu-item a {
+  display: block;
+  height: 100%;
+  overflow: visible;
+}
+.menu-item a .menu-item-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 40px;
+  width: 100%;
+}
+.menu-item a .menu-item-mask > img {
+  aspect-ratio: 1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.menu-item a > img {
+  position: absolute;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: visible;
+  max-height: 40% !important;
+  top: 10%;
+  right: -10%;
+  left: auto;
+}
+
+#freude, #lovestory, #angebote, #events, #news, #entdecken {
+  width: auto;
+  height: auto;
+}
+#freude img, #lovestory img, #angebote img, #events img, #news img, #entdecken img {
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+/*
+#freude, #lovestory, #angebote, #events, #news, #entdecken{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+*/
+.bg-gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  mix-blend-mode: multiply;
+  background: #3C5555;
+  background: linear-gradient(180deg, rgba(60, 85, 85, 0) 0%, rgb(60, 85, 85) 70%);
+}
+
+.overlay-title {
+  position: absolute;
+  bottom: 25px;
+  padding: 0px 15px;
+}
+
+.logo-container {
+  margin-top: 1rem;
+  height: 75px;
+  width: auto;
+  position: absolute;
+  right: 150px;
+  bottom: 10px;
+}
+.logo-container .logo {
+  height: 100%;
+  width: auto;
+}
+
+.hero-logo {
+  height: 100px !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  width: 100px !important;
+  position: relative;
+  right: 50px;
+  top: 50px;
+  padding: 1rem;
+  border-radius: 40px;
+  background-color: rgba(117, 163, 148, 0.8);
+}
+
+.home-button-container {
+  position: fixed;
+  bottom: 0px;
+  right: 8vw;
+  height: 100px;
+  width: 100px;
+  background-color: #FFFEDD;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+.home-button-container a {
+  display: flex;
+  justify-content: center;
+}
+.home-button-container a .home-button-bg {
+  position: absolute;
+  background-color: #3C5555;
+  width: 90%;
+  height: 90px;
+  border-radius: 100px;
+  top: 5px;
+}
+.home-button-container a .home-button-bg .home-button {
+  fill: #FFFEDD;
+  width: 50px;
+  height: auto;
+  position: relative;
+  top: 5px;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  top: 50%;
+}
+
+@media screen and (max-width: 1280px) {
+  nav.menu {
+    width: 100%;
+    padding: unset;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 3.5rem;
+  }
+  nav.menu h2, nav.menu h4 {
+    font-size: 35px;
+    padding: 0 50px;
+  }
+  nav.menu img {
+    aspect-ratio: unset !important;
+  }
+  #freude {
+    grid-row: 1;
+    grid-column: 1/span 6;
+  }
+  #lovestory {
+    grid-row: 1;
+    grid-column: 7/span 6;
+  }
+  #angebote {
+    grid-row: 2;
+    grid-column: 1/span 6;
+  }
+  #events {
+    grid-row: 2;
+    grid-column: 7/span 6;
+  }
+  #news {
+    grid-row: 3;
+    grid-column: 1/span 6;
+  }
+  #entdecken {
+    grid-row: 3;
+    grid-column: 7/span 6;
+  }
+  .logo-container {
+    right: 50px;
+  }
+  .wrapper-menu {
+    padding: 3rem 2rem 10rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  nav.menu {
+    height: 200vh;
+    width: 100%;
+    gap: unset;
+    row-gap: 3rem;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(9, 1fr) !important;
+  }
+  #freude {
+    grid-row: 1;
+    grid-column: 1/-1;
+  }
+  #lovestory {
+    grid-row: 2;
+    grid-column: 1/-1;
+  }
+  #angebote {
+    grid-row: 3;
+    grid-column: 1/-1;
+  }
+  #events {
+    grid-row: 4;
+    grid-column: 1/-1;
+  }
+  #news {
+    grid-row: 5;
+    grid-column: 1/-1;
+  }
+  #entdecken {
+    grid-row: 6;
+    grid-column: 1/-1;
+  }
+}
+.hero {
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+}
+.hero img {
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.hero .hero-position {
+  position: absolute;
+  bottom: 150px;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.hero-content p {
+  width: 100%;
+  max-width: 700px;
+  margin: unset;
+  border-radius: 40px;
+}
+.hero-content svg {
+  position: absolute;
+  height: 2rem;
+  fill: #FFFEDD;
+  bottom: -5rem;
+}
+
+.stack-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.freude-schenken-bg {
+  background-image: url(./assets/images/chrysantheme.jpg);
+}
+
+.form-background {
+  padding: 5rem;
+}
+
+.form-wrapper {
+  padding: 3rem;
+  background-color: #FFFEDD;
+  border-radius: 40px;
+}
+.form-wrapper h3 {
+  padding-bottom: 2rem;
+}
+.form-wrapper h3, .form-wrapper h4, .form-wrapper p {
+  color: #3C5555;
+}
+.form-wrapper form {
+  width: 100%;
+  flex: 50;
+}
+.form-wrapper .form-group-1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.form-wrapper .form-group-1 .form-group-1-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.form-wrapper .form-group-1 .form-group-1-inputs p {
+  margin: 0;
+}
+.form-wrapper .form-group-1 select {
+  background-color: #3C5555;
+  padding: 0.5rem 2rem;
+  border-radius: 40px;
+  color: #FFFEDD;
+  font-family: "Lufga Regular", sans-serif;
+  font-size: 21px;
+  font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+}
+.form-wrapper .form-group-1 p span {
+  font-family: "Lufga Bold", sans-serif;
+}
+.form-wrapper .form-group-1 label {
+  color: #3C5555;
+  font-family: "Lufga Regular", sans-serif;
+  font-size: 21px;
+  display: block;
+}
+.form-wrapper img {
+  height: 100%;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 40px;
+}
+
+.form-group-2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.form-group-2 .radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-group-2 .radio-wrapper .row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.form-group-2 .radio-wrapper .wunsch label {
+  display: none;
+}
+.form-group-2 .kaeufer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-label {
+  display: inline-block;
+  font-family: "Lufga regular";
+  font-size: 21px;
+}
+
+input[type=text], input[type=number] {
+  padding: 0.5rem 2rem;
+  font-size: 21px;
+  font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+  border-radius: 5px;
+  font-family: "Lufga Regular", sans-serif;
+  background-color: #3C5555;
+  color: #FFFEDD;
+  border-radius: 40px;
+  margin: 0.5rem 0.25rem;
+}
+
+input[type=text]::-moz-placeholder {
+  color: #FFFEDD;
+}
+
+input[type=text]::placeholder {
+  color: #FFFEDD;
+}
+
+.form-footer {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.form-footer .datenschutz {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.form-footer .arrow-button {
+  background-color: #3C5555;
+  border-radius: 40px;
+  padding: 0px 10px 45px 10px;
+  cursor: pointer;
+  height: 45px;
+}
+.form-footer .arrow-button svg {
+  fill: #FFFEDD;
+  height: 50px;
+}
+
+.beschenkte-person {
+  display: flex;
+  flex-direction: column;
+}
+.beschenkte-person label p {
+  font-family: "Lufga Regular", sans-serif;
+}
+.beschenkte-person input[type=text] {
+  width: 50%;
+  min-width: 500px;
+}
+
+@media screen and (max-width: 1280px) {
+  .form-group-1 {
+    flex-direction: column;
+    height: 100%;
+  }
+  .form-group-1 img {
+    width: 100%;
+    height: 100%;
+    order: 1;
+    max-width: 750px !important;
+  }
+  .form-group-1 .form-group-1-inputs {
+    order: 2;
+  }
+  .form-group-1 .form-group-1-inputs select {
+    width: 100%;
+  }
+  .form-group-2 {
+    flex-direction: column;
+    width: 100%;
+  }
+  .form-footer {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 750px) {
+  .form-background {
+    padding: 1rem;
+  }
+  input[type=text] {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+  .wunsch {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background-color: #FFFEDD;
+  padding: 100px 25px 25px 25px;
+  border-radius: 40px;
+  border: 4px solid #3C5555;
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.popup-content img {
+  max-width: 100%;
+  margin-bottom: 25px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #FFFEDD;
+  background-color: #3C5555;
+  padding: 3px 10px;
+  border-radius: 40px;
+}
+
+.gutschein-text {
+  position: absolute;
+  transform: translate(80px, -150px);
+  text-align: left;
+}
+.gutschein-text p {
+  font-family: "Lufga Bold", sans-serif !important;
+}
+
+.gutschein-preview button {
+  background-color: #3C5555;
+  font-family: "Lufga Bold", sans-serif;
+  color: #FFFEDD;
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 21px;
+}
+
+.confirmation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.confirmation-popup.hidden {
+  display: none;
+}
+
+.confirmation-popup .popup-content {
+  background-color: #FFFEDD;
+  padding: 100px 25px 25px 25px;
+  border-radius: 40px;
+  border: 4px solid #3C5555;
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+}
+.confirmation-popup .popup-content p {
+  text-align: left;
+  font-family: "Lufga Regular", sans-serif;
+  font-size: 21px;
+  color: #3C5555 !important;
+  line-height: 1.6;
+}
+.confirmation-popup .popup-content p span {
+  font-family: "Lufga Bold", sans-serif;
+}
+
+.confirmation-popup .close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 21px;
+  cursor: pointer;
+  color: #FFFEDD;
+  background-color: #3C5555;
+  padding: 3px 10px;
+  border-radius: 40px;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+.group-lovestory {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.hero-content-lovestory {
+  height: 100%;
+  width: 100%;
+  padding-top: 28rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-items: end;
+  gap: 3rem;
+}
+.hero-content-lovestory p {
+  margin: unset;
+  border-radius: 40px;
+  max-width: 750px;
+  width: unset;
+}
+
+.bluehende-angebote-bg {
+  background-image: url(./assets/images/herbstastern.jpg);
+}
+
+.wrapper {
+  padding: 5vw;
+  max-width: 100%;
+}
+
+.angebot-wrapper .overlay-angebot {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 25px;
+  gap: 0.5rem;
+  padding: 0 25px;
+}
+
+.overlay-angebot {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 25px;
+  gap: 0.5rem;
+}
+.overlay-angebot .desc-group-additional p {
+  margin: 0 !important;
+}
+
+.card-wrapper {
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  padding-bottom: 10rem;
+}
+.card-wrapper .card {
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+  min-width: 400px;
+  width: 100%;
+  flex: 50;
+  height: 75vh;
+}
+.card-wrapper .card img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.card-wrapper .card .preis {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.card:nth-child(4) h3 {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .group-lovestory {
+    padding-bottom: 10rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+  }
+  .group-lovestory .bg-transparent {
+    padding-bottom: 8rem;
+  }
+}
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  mix-blend-mode: multiply;
+  background: rgba(60, 85, 85, 0.8);
+}
+
+.angebote-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.angebote-wrapper .angebot {
+  overflow: hidden;
+  display: flex;
+  border-radius: 40px;
+  background-color: #FFFEDD;
+  flex: 50;
+  flex-wrap: wrap;
+}
+.angebote-wrapper .angebot .img-container {
+  position: relative;
+  overflow: hidden;
+  min-width: 400px;
+  width: 100%;
+  flex: 50;
+  background-color: #FFFEDD;
+}
+.angebote-wrapper .angebot .img-container img {
+  display: block;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.angebote-wrapper .angebot .img-container .desc-group {
+  display: flex;
+  gap: 1rem;
+}
+.angebote-wrapper .angebot .img-container span {
+  font-family: "Lufga Bold";
+}
+.angebote-wrapper .angebot .content-img-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 2.5rem;
+  bottom: 0;
+}
+.angebote-wrapper .text-container {
+  padding: 2.5rem;
+  flex: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  min-width: 550px;
+}
+.angebote-wrapper .text-container p {
+  color: #3C5555;
+  margin: unset;
+  width: 100%;
+}
+.angebote-wrapper .text-container p span {
+  font-family: "Lufga Bold";
+}
+.angebote-wrapper .text-container .button {
+  cursor: pointer;
+  margin-top: 2rem;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #3C5555;
+  border-radius: 40px;
+  color: #FFFEDD;
+  font-family: "Lufga Bold", sans-serif;
+  font-size: clamp(1.125rem, 1.0208rem + 0.3333vw, 1.3125rem);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .angebot {
+    flex-direction: column;
+  }
+  .angebot .img-container {
+    height: 100%;
+    min-width: unset !important;
+  }
+  .angebot .text-container {
+    min-width: unset !important;
+  }
+}
+.blueten-news-bg {
+  background-image: url(./assets/images/alpenveilchen.jpg);
+}
+
+.gruene-events-bg {
+  background-image: url(./assets/images/herbstanemone-weiß.jpg);
+}
+
+.paulas-garden-entdecken-bg {
+  background-image: url(./assets/images/herbstanemone-rosa.jpg);
+}
+
+.cover {
+  background-size: cover;
+}/*# sourceMappingURL=styles.css.map */

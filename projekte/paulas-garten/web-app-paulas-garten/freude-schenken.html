@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./assets/font/style.css">
+  <title>Freude schenken</title>
+</head>
+<body>
+  <section class="hero hero-position cover freude-schenken-bg">
+    <div class="bg-gradient"></div>
+    <img class="hero-logo" src="./assets/images/logo.png" alt="Logo von Paula's Garden">
+    <div class="hero-content hero-position">
+    <h2>Freude schenken</h2>  
+    <div class="stack-container">
+      <h4>Verschenke pures Gartenglück!</h4>
+      <p>Wähle eins der Motive sowie deinen Wunschbetrag aus. Schreibe den Namen des beschenkten Menschen in die Eingabemaske. Dein Gutschein wird durch deine Bestellung direkt hier in Paula’s Garden ausgedruckt. Du kannst ihn sofort bezahlen und mitnehmen!</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+    </div>
+    </div>
+  </section>
+
+  <section class="form-background bg">
+    <div class="form-wrapper">
+      <h3>Dein individueller   Gutschein</h3>
+
+
+    <form action="empty">
+      
+      <div class="form-group-1">
+        <div class="form-group-1-inputs">
+        <div class="motiv">
+        <label for="motiv"><p>Wähle dein Motiv:</p></label>
+        <select name="motiv" id="motiv">
+  <option value="roses">Roses and more</option>
+  <option value="flower">Flowerpower</option>
+  <option value="happy-bees">Happy Bees</option>
+  <option value="spooky-halloween">Spooky Halloween</option>
+</select>
+        </div>
+
+        <p><span>Weitere Angaben für den Geschenkgutschein</span></p>
+
+        <div class="beschenkte-person">
+        <label  for="beschenkte-person"><p>1. Für wen ist der Geschenkgutschein?</p></label>
+        <input type="text" id="beschenkte-person" maxlength="30" placeholder="Name der beschenkten Person">
+        </div>
+        </div>
+
+        <img class="vorschau" src="./assets/images/Gutscheine-Paulas-Garden-Roses-and-more.jpg" alt="Vorschaubild des Gutscheins">
+
+      </div>
+
+      <div class="form-group-2">
+
+          <div class="wunschbetrag">
+        <p>2. Wähle deinen Wunschbetrag</p>
+
+
+
+        <div class="radio-wrapper">
+
+  <div class="row">
+    <div class="10-euro">
+      <input type="radio" id="10-euro" name="wunschbetrag" value="10 Euro">
+      <label class="inline-label" for="10-euro">10 Euro</label>
+    </div>
+
+    <div class="25-euro">
+      <input type="radio" id="25-euro" name="wunschbetrag" value="25 Euro">
+      <label class="inline-label" for="25-euro">25 Euro</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="50-euro">
+      <input type="radio" id="50-euro" name="wunschbetrag" value="50 Euro">
+      <label class="inline-label" for="50-euro">50 Euro</label>
+    </div>
+
+    <div class="100-euro">
+      <input type="radio" id="100-euro" name="wunschbetrag" value="100 Euro">
+      <label class="inline-label" for="100-euro">100 Euro</label>
+    </div>
+  </div>
+
+  <div class="wunsch">
+    <input type="radio" id="wunschbetrag-radio" name="wunschbetrag" value="wunschbetrag">
+    <label class="inline-label" for="wunschbetrag-radio">Wunschbetrag</label>
+    <input type="text" inputmode="numeric" maxlength="3" pattern="[0-9]{3}" name="Wunschbetrag" placeholder="Wunschbetrag" id="wunschbetrag" aria-labelledby="wunschbetrag-radio">
+  </div>
+
+</div>
+
+      </div>
+
+      <div class="kaeufer">
+  
+    <p><span>Angaben zum Käufer</span></p>
+
+    <div class="row">
+    <input type="text" name="vorname" id="vorname" placeholder="Vorname*" required>
+
+    <input type="text" name="nachname" id="nachname" placeholder="Nachname*" required>
+    </div>
+
+    <div class="row">
+    <input type="text" name="straße" id="straße" placeholder="Straße*" required>
+
+    <input type="text" name="hausnummer" id="hausnummer" placeholder="Hausnummer*" required>
+    </div>
+
+    <div class="row">
+    <input type="number" maxlength="5" name="plz" id="plz" placeholder="Postleitzahl*" required>
+
+    <input type="text" name="ort" id="ort" placeholder="Ort*" required>
+    </div>
+
+  </div>
+  </div>
+
+  <div class="form-footer">
+  <div class="datenschutz">
+        <input type="checkbox" id="datenschutz" name="datenschutz" value="einverstanden" required>
+        <label class="inline-label" for="datenschutz">Ich habe die Datenschutzerklärung zur Kenntnis genommen. Ich stimme zu, dass meine Angaben und Daten elektronisch erhoben und gespeichert werden. Die Einwilligung kann ich jederzeit für die Zukunft widerrufen. * </label>
+        </div>
+       <button type="submit" class="arrow-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+          </button>
+        </div>
+        <p>* Pflichtfeld</p>
+
+        </form>
+  </div>
+
+  
+      
+  </section>
+
+  <div class="popup hidden">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <div class="gutschein-preview">
+      <img id="popup-motiv" src="" alt="Gutschein-Motiv">
+      <div class="gutschein-text">
+        <p id="popup-fuer"></p>
+        <p id="popup-wert"></p>
+      </div>
+      <button>Jetzt verpflichtend kaufen</button>
+    </div>
+  </div>
+</div>
+
+<div class="confirmation-popup hidden">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <p>
+      Die Bestellung deines Gutscheins ist eingegangen und wird für dich gedruckt. Du kannst ihn in 10 Minuten an der Kasse 4 abholen und direkt mit deinen weiteren Einkäufen bezahlen.<br><br>
+      Wir wünschen dir und dem von dir beschenkten Menschen viel Freude damit.<br><br>
+      <span>Dein Paula’s Garden Team</span>
+    </p>
+  </div>
+</div>
+
+
+
+  <nav>
+    <div class="home-button-container">
+      <a href="./index.html">
+        <div class="home-button-bg">
+        <svg class="home-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+      </div>
+      </a>
+    </div>
+  </nav>
+  
+  <script src="./gutschein-motive.js"></script>
+  <script src="./gutschein-popup.js"></script>
+</body>
+</html>
