@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="./assets/font/style.css">
+  <style>
+    /* Grid-Anpassung für die Angebots-Karten */
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: 1fr; /* Mobile: 1 Spalte */
+      gap: 2rem; /* Behält den Abstand zwischen den Karten bei */
+      padding: 2rem 0; /* Behält das vertikale Padding bei */
+    }
+
+    @media (min-width: 768px) {
+      .card-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 Spalten */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card-wrapper {
+        grid-template-columns: repeat(3, 1fr); /* Desktop: 3 Spalten (2 Zeilen bei 6 Items) */
+      }
+    }
+  </style>
   <title>Blühende Angebote</title>
 </head>
 <body>
@@ -12,7 +33,7 @@
     <img class="hero-logo" src="./assets/images/logo.png" alt="Logo von Paula's Garden">
     <div class="bg-gradient"></div>
     <div class="hero-content hero-position">
-    <h2>Bluehende Angebote</h2>  
+    <h2>Blühende Angebote</h2>  
     <div class="stack-container">
       <h4>Wachse  über dich hinaus!</h4>
       <p>Hier findest du die saisonal wechselnden Angebote von Paula's Garden </p>

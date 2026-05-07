@@ -24,6 +24,24 @@ if (window.matchMedia("(pointer: coarse)").matches) {
 window.addEventListener('mousemove', (e) => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
+
+  // Nav Einblenden bei Hover in der Nähe
+  if (header && header.classList.contains('header--hidden')) {
+    const isDesktop = window.innerWidth >= 768;
+    const triggerArea = 300; // Bereich in Pixeln vom Rand
+
+    if (isDesktop) {
+      // Desktop: Nav ist unten links positioniert
+      if (e.clientX < triggerArea && e.clientY > window.innerHeight - triggerArea) {
+        header.classList.remove('header--hidden');
+      }
+    } else {
+      // Mobile: Nav ist unten zentriert
+      if (e.clientY > window.innerHeight - triggerArea) {
+        header.classList.remove('header--hidden');
+      }
+    }
+  }
 });
 
 // Interaktive Elemente für den Label-Effekt

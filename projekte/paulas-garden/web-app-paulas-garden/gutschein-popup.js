@@ -33,9 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const motivBildPfad = motivBilder[selectedMotiv];
 
+    // Bereinigt den Wert: Entfernt "Euro" (case-insensitive), falls der User es eingegeben hat,
+    // damit es später im Template-String nicht doppelt erscheint.
+    const cleanedWert = selectedWert.toString().replace(/euro/gi, '').trim();
+
     document.getElementById('popup-motiv').src = motivBildPfad;
     document.getElementById('popup-fuer').textContent = `für: ${beschenktePerson}`;
-    document.getElementById('popup-wert').textContent = `wert: ${selectedWert} euro`;
+    document.getElementById('popup-wert').textContent = `wert: ${cleanedWert} euro`;
 
     popup.classList.remove('hidden');
   });
