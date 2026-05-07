@@ -307,24 +307,23 @@ nav{
 
   // Slider-Funktionalität erst ab Tablet (768px) aktivieren
   @media (min-width: 768px) {
-    flex-direction: row;
+    flex-direction: row;  
     overflow-x: auto;
     scroll-snap-type: x mandatory;
 
     // Sichtbarer Balken (Scrollbar-Styling) als Indikator
-    scrollbar-width: thin;
-    scrollbar-color: $text-color rgba($text-color, 0.1);
+    scrollbar-color: $background-color-card-and-elements rgba($background-color-card-and-elements, 0.1);
 
     &::-webkit-scrollbar {
       display: block;
-      height: 4px;
+      height: 8px;
     }
     &::-webkit-scrollbar-track {
-      background: rgba($text-color, 0.05);
+      background: rgba($background-color-card-and-elements, 0.05);
       border-radius: $radius-full;
     }
     &::-webkit-scrollbar-thumb {
-      background: $text-color;
+      background: $background-color-card-and-elements;
       border-radius: $radius-full;
     }
   }
