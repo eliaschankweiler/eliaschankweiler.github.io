@@ -52,43 +52,35 @@
 // =============================================================================
 
 // --- Foundation ---
-$color-surface:                   #FAC805;  // Base canvas (warm light grey)
-$color-on-surface:                #212121;  // Primary body copy (softened black)
-$color-on-surface-pure:           #171717;  // Pure black — Display headings only
+// Schriftfarbe
+$text-color:                      #181818;  // Primäre Textfarbe (dunkel)
+$text-color-on-dark:              #e6e6e6;  // Textfarbe für dunkle Hintergründe (hell)
 
-// --- Primary / Accent ---
-$color-primary:                    #212121;  // Black for Buttons and Hover Effects
-$color-primary-container:         #212121;  // CTAs, underlines, focal accent
+// Hintergrundfarbe
+$background-color:                #dfdfdf;  // Haupt-Hintergrundfarbe der Seite
 
-// --- Surface Container Tiers (Layering Principle) ---
-$color-surface-container-lowest:  #a68500;  // Cards / interactive modules (Level 2)
-$color-surface-container-low:     #4d4946;  // Secondary content sections (Level 1)
-$color-surface-container:         #a68500;  // General contained surfaces
-$color-surface-container-high:    #a68500;  // Hover backgrounds for list items
-$color-surface-container-highest: #a68500;  // Chip / tag backgrounds
+// Hintergrundkontrastfarben
+$background-color-card-and-elements: #da5a3b;  // Für Karten, Chips, Side-Nav, Marquee, Bento-Items
+$background-color-secondary-section: #4d4946;  // Für sekundäre Inhaltsbereiche
 
-// --- On-Color ---
-$color-on-primary:                #ffffff;
-$color-on-primary-container:      #ffffff;
+// Gradientfarben
+$gradient-primary-start:          #ddb11f;  // Startfarbe des primären Gradienten
+$gradient-primary-end:            #da5a3b;  // Endfarbe des primären Gradienten
 
 // --- Utility ---
-$color-outline-variant:           rgba(#1a1c1d, 0.15); // Ghost Border
-$color-shadow:                    rgba(#1a1c1d, 0.06); // Ambient shadow tint
+$color-outline-variant:           rgba($text-color, 0.15); // Ghost Border
+$color-shadow:                    rgba($text-color, 0.06); // Ambient shadow tint
 
 // --- CSS Custom Properties (runtime usage) ---
 :root {
-  --color-surface:                   #{$color-surface};
-  --color-on-surface:                #{$color-on-surface};
-  --color-on-surface-pure:           #{$color-on-surface-pure};
-  --color-primary:                   #{$color-primary};
-  --color-primary-container:         #{$color-primary-container};
-  --color-surface-container-lowest:  #{$color-surface-container-lowest};
-  --color-surface-container-low:     #{$color-surface-container-low};
-  --color-surface-container:         #{$color-surface-container};
-  --color-surface-container-high:    #{$color-surface-container-high};
-  --color-surface-container-highest: #{$color-surface-container-highest};
-  --color-on-primary:                #{$color-on-primary};
-  --color-on-primary-container:      #{$color-on-primary-container};
+  --text-color:                      #{$text-color};
+  --text-color-on-dark:              #{$text-color-on-dark};
+  --background-color:                #{$background-color};
+  --background-color-card-and-elements: #{$background-color-card-and-elements};
+  --background-color-secondary-section: #{$background-color-secondary-section};
+  --gradient-primary-start:          #{$gradient-primary-start};
+  --gradient-primary-end:            #{$gradient-primary-end};
+  --gradient-primary-signature:      #{$gradient-primary-signature};
   --color-outline-variant:           #{$color-outline-variant};
   --color-shadow:                    #{$color-shadow};
 }
@@ -164,7 +156,7 @@ $letter-spacing-sm: 0rem;
   left: 0;
   width: 16px;
   height: 16px;
-  border: 2px solid $color-primary;
+  border: 2px solid $text-color;
   background-color: transparent;
   border-radius: 50%;
   pointer-events: none;
@@ -173,8 +165,8 @@ $letter-spacing-sm: 0rem;
   transition: opacity 0.3s ease, transform 0.15s ease, background-color 0.2s ease;
   transform: translate(-50%, -50%);
 
-  &.active {
-    background-color: $color-primary; // Füllt den Kreis
+  &.active { 
+    background-color: $text-color; // Füllt den Kreis
     transform: translate(-50%, -50%) scale(1.2);
     
     .cursor-label {
@@ -186,9 +178,9 @@ $letter-spacing-sm: 0rem;
   .cursor-label {
     position: absolute;
     top: 12px;
-    left: 12px;
-    background-color: $color-primary;
-    color: $color-on-primary;
+    left: 12px; 
+    background-color: $text-color;
+    color: $text-color-on-dark;
     padding: 4px 10px;
     border-radius: 4px 10px 10px 10px;
     font-family: $font-utility;
@@ -262,8 +254,8 @@ $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 // Signature texture gradient for hero CTAs (prevents flat orange)
 $gradient-primary-signature: linear-gradient(
   135deg,
-  $color-surface 0%,
-  $color-on-surface 75%
+  $gradient-primary-start 0%,
+  $gradient-primary-end 75%
 );
 
 
@@ -274,7 +266,7 @@ $gradient-primary-signature: linear-gradient(
 // --- Glassmorphism ---
 // Use for floating elements: nav bars, hovering cards
 @mixin glass {
-  background: rgba($color-surface, 0.70);
+  background: rgba($background-color, 0.70);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -288,7 +280,7 @@ $gradient-primary-signature: linear-gradient(
   @media (min-width: 768px) { font-size: $type-display-lg; } // Desktop: 5rem
   font-weight: $weight-black;
   line-height: $line-height-tight;
-  color: $color-on-surface-pure;
+  color: $text-color;
   letter-spacing: $letter-spacing-lg;
   word-wrap: break-word;
   hyphens: auto;
@@ -300,7 +292,7 @@ $gradient-primary-signature: linear-gradient(
   @media (min-width: 768px) { font-size: $type-display-md; } // Desktop: 3.5rem
   font-weight: $weight-black;
   line-height: $line-height-tight;
-  color: $color-on-surface-pure;
+  color: $text-color;
   letter-spacing: $letter-spacing-md;
   word-wrap: break-word;
 }
@@ -311,7 +303,7 @@ $gradient-primary-signature: linear-gradient(
   @media (min-width: 768px) { font-size: $type-display-sm; } // Desktop: 2rem
   font-weight: $weight-bold;
   line-height: $line-height-snug;
-  color: $color-on-surface-pure;
+  color: $text-color;
   letter-spacing: $letter-spacing-sm;
 }
 
@@ -322,7 +314,7 @@ $gradient-primary-signature: linear-gradient(
   @media (min-width: 768px) { font-size: $type-headline-lg; } // Desktop: 1.875rem
   font-weight: $weight-bold;
   line-height: $line-height-snug;
-  color: $color-on-surface;
+  color: $text-color;
   letter-spacing: $letter-spacing-lg;
 }
 
@@ -331,7 +323,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-headline-md;
   font-weight: $weight-bold;
   line-height: $line-height-snug;
-  color: $color-on-surface;
+  color: $text-color;
   letter-spacing: $letter-spacing-md;
 }
 
@@ -340,7 +332,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-headline-sm;
   font-weight: $weight-semibold;
   line-height: $line-height-snug;
-  color: $color-on-surface;
+  color: $text-color;
   letter-spacing: $letter-spacing-sm;
 }
 
@@ -350,7 +342,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-title-lg;
   font-weight: $weight-semibold;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
   letter-spacing: $letter-spacing-lg;
 
 }
@@ -360,7 +352,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-title-md;
   font-weight: $weight-semibold;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
   letter-spacing: $letter-spacing-md;
 
 }
@@ -370,7 +362,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-title-sm;
   font-weight: $weight-medium;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
   letter-spacing: $letter-spacing-sm;
 
 }
@@ -381,7 +373,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-body-lg;
   font-weight: $weight-regular;
   line-height: $line-height-relaxed;
-  color: $color-on-surface;
+  color: $text-color;
   text-align: left; // No center-align on body copy
 }
 
@@ -390,7 +382,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-body-md;
   font-weight: $weight-regular;
   line-height: $line-height-relaxed;
-  color: $color-on-surface;
+  color: $text-color;
   text-align: left;
 }
 
@@ -399,7 +391,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-body-sm;
   font-weight: $weight-regular;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
   text-align: left;
 }
 
@@ -409,7 +401,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-label-lg;
   font-weight: $weight-medium;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
 }
 
 @mixin type-label-md {
@@ -417,7 +409,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-label-md;
   font-weight: $weight-medium;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
 }
 
 @mixin type-label-sm {
@@ -425,7 +417,7 @@ $gradient-primary-signature: linear-gradient(
   font-size: $type-label-sm;
   font-weight: $weight-regular;
   line-height: $line-height-normal;
-  color: $color-on-surface;
+  color: $text-color;
 }
 
 
@@ -449,8 +441,8 @@ html {
 }
 
 body {
-  background-color: $color-surface;
-  color: $color-on-surface;
+  background-color: $background-color;
+  color: $text-color;
   font-family: $font-text;
   font-size: $type-body-md;
   line-height: $line-height-relaxed;
@@ -468,16 +460,16 @@ p  { @include type-body-md; }
 
 // Links — Orange or Black only. No blue.
 a {
-  color: $color-on-surface;
+  color: $text-color;
   text-decoration: none;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $color-primary;
+    color: $text-color;
   }
 }
 
-img {
+img { 
   max-width: 100%;
   display: block;
   border-radius: $radius-default; // Portfolio image standard corner
@@ -493,14 +485,14 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: calc(#{$spacing-3} - 1px) $spacing-8; // -1px wegen der Border
+  padding: calc(#{$spacing-3} - 1px) $spacing-8; // -1px wegen der Border 
   background: transparent;
-  color: $color-primary;
+  color: $text-color;
   font-family: $font-text;
   font-size: $type-body-md;
   font-weight: $weight-semibold;
-  border-radius: $radius-md;
-  border: 2px solid rgba($color-primary, 0.2); // Dezente Grund-Border
+  border-radius: $radius-md; 
+  border: 2px solid rgba($text-color, 0.2); // Dezente Grund-Border
   cursor: pointer;
   text-decoration: none;
   position: relative;
@@ -516,7 +508,7 @@ img {
     padding: 1px; // Entspricht der 1px Border des Buttons
     background: radial-gradient(
       200px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-      $color-primary,
+      $text-color,
       transparent 80%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -532,8 +524,8 @@ img {
   &:hover {
     opacity: 1;
     transform: translateY(-1px);
-    color: $color-primary;
-    box-shadow: 0 5px 15px rgba($color-primary, 0.1);
+    color: $text-color;
+    box-shadow: 0 5px 15px rgba($text-color, 0.1);
 
     &::before {
       opacity: 1;
@@ -551,21 +543,21 @@ img {
   display: inline-flex;
   align-items: center;
   @include type-body-lg;
-  font-weight: $weight-bold;
-  color: $color-on-surface;
+  font-weight: $weight-bold; 
+  color: $text-color;
   text-decoration: underline;
-  text-decoration-color: $color-primary-container; // 2px orange underline
+  text-decoration-color: $text-color; // 2px orange underline
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   border: none;
   background: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0; 
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 
   &:hover {
-    color: $color-primary;
-    text-decoration-color: $color-primary;
+    color: $text-color;
+    text-decoration-color: $text-color;
   }
 }
 
@@ -590,14 +582,14 @@ img {
   
   // Die Spotlight-Border Technik
   &::before {
-    content: '';
+    content: ''; 
     position: absolute;
     inset: 0;
     border-radius: inherit;
     padding: 2px; // Die Breite der Border
     background: radial-gradient(
       400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-      $color-primary, // Kräftiges Orange bleibt für den Border-Glow erhalten
+      $text-color, // Kräftiges Orange bleibt für den Border-Glow erhalten
       transparent 80%
     );
     // Maskierung: Zeige nur den Bereich des Paddings (die Border)
@@ -637,19 +629,19 @@ img {
   &__title {
     @include type-headline-sm;
     margin-bottom: $spacing-2;
-    color: $color-primary;
+    color: $text-color;
   }
 
   &__description {
     @include type-body-sm;
     margin-bottom: $spacing-4;
-    color: $color-on-surface;
+    color: $text-color;
   }
   
   // Chip Farbe anpassen für besseren Kontrast auf Orange
   .chip {
-    background-color: $color-surface-container-highest; 
-    color: $color-on-surface;
+    background-color: $background-color-card-and-elements;
+    color: $text-color; // Changed from $color-on-surface to $text-color for consistency
     align-self: flex-start; // Bubble nimmt nur die Breite des Inhalts ein
   }
 }
@@ -688,7 +680,7 @@ img {
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: $color-surface-container-high;
+      background-color: rgba($background-color-card-and-elements, 0.5);
     }
   }
 }
@@ -708,22 +700,22 @@ img {
 .input-field {
   width: 100%;
   background: transparent;           // No fill
-  border: none;
+  border: none; 
   border-bottom: 1px solid $color-outline-variant; // Ghost Border — 15% opacity
   border-radius: 0;
   padding: $spacing-3 0;
   @include type-body-md;
-  color: $color-on-surface;
+  color: $text-color;
   outline: none;
-  transition: border-color 0.25s ease, border-width 0.25s ease;
+  transition: border-color 0.25s ease, border-width 0.25s ease; 
 
   &::placeholder {
-    color: $color-on-surface;
+    color: $text-color;
     opacity: 0.4;
   }
 
   &:focus {
-    border-bottom: 2px solid $color-primary; // Ghost → primary on focus
+    border-bottom: 2px solid $text-color; // Ghost → primary on focus
   }
 }
 
@@ -736,25 +728,25 @@ img {
   width: fit-content;
   display: inline-flex;
   align-items: center;
-  gap: $spacing-1;
-  background-color: $color-surface-container-highest;
+  gap: $spacing-1; 
+  background-color: $background-color-card-and-elements;
   border-radius: $radius-full; // Fully rounded "pebble"
   padding: $spacing-1 $spacing-3;
   @include type-label-md;
-  color: $color-surface;
+  color: $text-color-on-dark; // Changed for better contrast on $background-color-card-and-elements
   cursor: default;
   transition: background-color 0.2s ease;
 
-  &:hover {
-    background-color: $color-surface-container-high;
+  &:hover { 
+    background-color: $background-color-card-and-elements; // Keep same for now, or define a hover state
   }
 
   // Active / selected state
   &--active {
-    background-color: $color-primary-container;
-    color: $color-on-primary-container;
+    background-color: $text-color;
+    color: $text-color-on-dark;
   }
-}
+} 
 
 
 // =============================================================================
@@ -766,7 +758,7 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 100; 
   @include glass; // 70% surface + 20px blur
 
   display: flex;
@@ -777,8 +769,8 @@ img {
   &__logo {
     font-family: $font-headline;
     font-size: $type-headline-sm;
-    font-weight: $weight-black;
-    color: $color-on-surface-pure;
+    font-weight: $weight-black; 
+    color: $text-color;
     text-decoration: none;
   }
 
@@ -792,13 +784,13 @@ img {
     a {
       @include type-label-lg;
       font-weight: $weight-medium;
-      color: $color-on-surface;
+      color: $text-color;
       text-decoration: none;
       transition: color 0.2s ease;
 
       &:hover,
       &.is-active {
-        color: $color-primary;
+        color: $text-color;
       }
     }
   }
@@ -810,9 +802,9 @@ img {
 // =============================================================================
 
 // --- Surface Shifts (replace 1px borders for section boundaries) ---
-.surface-base  { background-color: $color-surface; }
-.surface-low   { background-color: $color-surface-container-low; }
-.surface-card  { background-color: $color-surface-container-lowest; }
+.surface-base  { background-color: $background-color; }
+.surface-low   { background-color: $background-color-secondary-section; }
+.surface-card  { background-color: $background-color-card-and-elements; }
 
 // --- Section Spacing (psychological breaks — no lines needed) ---
 .section-break {
@@ -851,8 +843,8 @@ img {
   //CUSTOM ENTITIES
   //_________________________________________________________
   
-  
+
   //WIDTH-SETTINGS
 
   $wide-width: 1100px;
-  $content-width: 700px; 
+  $content-width: 700px;
