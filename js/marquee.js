@@ -1,14 +1,13 @@
 // Konfiguration: Hier deine Programme eintragen
 const programs = [
-  "Figma",
   "Adobe Photoshop",
   "Adobe Illustrator",
   "Adobe InDesign",
-  "HTML5",
-  "CSS3 / SCSS",
-  "JavaScript",
-  "After Effects",
-  "Premiere Pro"
+  "Adobe Lightroom",
+  "Figma",
+  "Wordpress",
+  "UI/UX-Design",
+  "Corporate Design"
 ];
 
 const marqueeContainer = document.getElementById('tech-marquee');
